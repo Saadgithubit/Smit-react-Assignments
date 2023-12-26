@@ -1,71 +1,68 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect,useState } from 'react';
 
 function App() {
-const [toggle , settoggle] = useState(true)
-const [list , setlist] = useState([])
-const [text, settext] = useState('')
-const [updateIndex , setUpdateIndex] = useState(null)
 
-function inputValue(e){
-  const value = e.target.value
-  settext(value)
-}
-function addItem(){
-  const copyText = [...list]
-  copyText.push(text)
-  settext('')
-  setlist(copyText)
-}
+  const [question , setquestion] = useState([])
+  const [currentIndex , setcurrentIndex] = useState(0)
+  const [score , setscore] = useState(0)
+  const [toggle , settoggle] = useState(true)
 
-function deleteItem(index){
-  const copyList = [...list]
-  copyList.splice(index , 1)
-  setlist(copyList)
-}
-
-function editItem(index){
-  const updatedText = list[index]
-  settext(updatedText)
-  setUpdateIndex(index)
-  settoggle(false)
-}
-
-function updateItem(){
-  const updateList = [...list]
-  updateList[updateIndex] = text;
-  setlist(updateList);
-  settext('');
-  setUpdateIndex(null);
-  settoggle(true);
-
+  useEffect(function () {
+    getApi()
+  } , [])
   
+  function getApi(){
+    fetch('https://mocki.io/v1/443df9a7-e317-4dc9-b7a4-904ac0d439b3')
+    .then(res => res.json())
+    .then(res => setquestion(res))
+    console.log(question);
+  }
+
+  function next(){
+    setcurrentIndex(currentIndex + 1)
+    
+   console.log(score);
+
+  }
+
+  function checkAnswer(option){
+   console.log(option);
+   if(option == question[currentIndex].correct_answer){
+    setscore(score + 1)
+   }
+   console.log(score);
+  }
+
+  function restart(){
+    setcurrentIndex(0)
+  }
+
+  const isLastQuestion = currentIndex !== question.length -1
   
+if(!question.length){
+  return
+  <div>Loading....</div>
 }
   return (
     <div className="App">
       <header className="App-header">
-        <h1>To Do List</h1>
-        {/* <img src={logo} className='App-logo'/> */}
-        <input type='text' onChange={inputValue} value={text} placeholder='Enter any item'/>
-        {toggle ? <button onClick={addItem}>Add</button> 
-        :
-         <button onClick={() => updateItem()}>Update</button>}
-
-
-        <ul>
-          {list.map(function(item , index){
-           return <li key={index}>
-            {item}
-            <button onClick={() => editItem(index)}>Edit</button>
-            <button onClick={() => deleteItem(index)}>Delete</button>
-            </li>
-          })}
-        </ul>
+       <h1>Quiz App</h1>
+      {isLastQuestion ? <div className='question-div'><h2>Q:{currentIndex + 1} {question[currentIndex].question}</h2>
+      {question[currentIndex].options.map(function(option){
+        return <p><input type='radio' name='options' onClick={() => checkAnswer(option)}/>{option}</p>
+      })}
+      <button onClick={next}>Next</button></div>
+      : 
+      <div>
+          <p>Your Score Is {score * 100 / question.length}%</p>
+        <button onClick={restart}>Restart</button>
+        </div>
+      }
+        
       </header>
     </div>
-
   );
 }
 
