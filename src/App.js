@@ -9,7 +9,7 @@ function App() {
   const [toggle, settoggle] = useState(false);
   const [minute, setminute] = useState(null);
   const [sec, setsec] = useState(59);
-  const [select, setselect] = useState(null)
+  const [selectedOption, setselectedOption] = useState(null)
 
   useEffect(function () {
     getApi();
@@ -50,9 +50,9 @@ function App() {
     setminute(4)
   }
   function next() {
-    if (select !== null) {
+    if (selectedOption !== null) {
       setcurrentIndex(currentIndex + 1);
-      setselect(null)
+      setselectedOption(null)
     } else {
       alert('Please Select Any Option')
     }
@@ -60,7 +60,7 @@ function App() {
   }
 
   function checkAnswer(option) {
-    setselect(option)
+    setselectedOption(option)
     if (option == question[currentIndex].correct_answer) {
       setscore(score + 1);
       console.log(option);
@@ -97,7 +97,7 @@ function App() {
                 {question[currentIndex].options.map(function (option) {
                   return (
                     <p>
-                      <input type="radio" name='options' checked={select === option} onClick={() => checkAnswer(option)} />
+                      <input type="radio" name='options' checked={selectedOption === option} onClick={() => checkAnswer(option)} />
                       {option}
                     </p>
                   );
