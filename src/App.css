@@ -42,12 +42,28 @@
   }
 }
 
+.quiz{
+  width: 100%;
+  display: flex ;
+  justify-content: center;
+}
+
 .question-div {
   border: 1px solid white;
   width: 50%;
   border-radius: 10px;
   background: transparent;
   backdrop-filter: blur(8px);
+}
+
+ h3{
+  border: 1px solid white;
+  width: 30%;
+  height: 60px;
+  padding-top: 12px;
+  background: transparent;
+  backdrop-filter: blur(8px);
+
 }
 
 .question-div h2 {
