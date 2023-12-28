@@ -43,7 +43,7 @@
   }
 }
 h1{
-  font-size: 60px;
+  font-size: 80px;
 }
 
 .quiz{
@@ -54,7 +54,7 @@ h1{
 
 .question-div {
   border: 1px solid white;
-  width: 50%;
+  width: 70%;
   border-radius: 10px;
   background: transparent;
   backdrop-filter: blur(8px);
@@ -99,7 +99,10 @@ button {
   margin: 20px;
 }
 
-@media only screen and (max-width: 720px){
+@media only screen and (max-width: 768px){
+  h1{
+    font-size: 60px;
+  }
   .question-div{
     width: 100%;
   }
