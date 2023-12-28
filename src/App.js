@@ -38,6 +38,10 @@ function App() {
           setcurrentIndex(question.length - 1)
           setminute(null)
         }
+        if(!isLastQuestion){
+          clearInterval(timer)
+          setminute(null)
+        }
         return clearInterval(timer);
 
       }, 1000);
@@ -70,9 +74,12 @@ function App() {
 
   function restart() {
     setcurrentIndex(0);
+    setminute(4);
+    setsec(59);
+    setscore(0);
   }
 
-  const isLastQuestion = currentIndex !== question.length - 1;
+  const isLastQuestion = currentIndex !== question.length;
 
   if (!question.length) {
     return;
