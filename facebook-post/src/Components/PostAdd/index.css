@@ -1,0 +1,27 @@
+.hero{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    padding: 15px;
+    margin-bottom: 10%;
+}
+.desc{
+    color: rgb(35, 171, 255);
+}
+.gallery{
+    width: 50%;
+    margin: auto;
+}
+.hero-main i{
+    margin: 10px;
+    width: 200px;
+    cursor: pointer;
+}
+@media screen and (min-width: 425px) {
+    /* .hero-main {
+        display: flex;
+        flex-direction: row;
+    } */
+}
