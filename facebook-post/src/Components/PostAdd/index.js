@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import FbImageLibrary from 'react-fb-image-grid';
 import'./index.css'
-import Custombtn from "../Custombtn";
+import Custombtn from "../CustomButton";
 
 
 function PostAdd() {

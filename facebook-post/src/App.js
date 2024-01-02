@@ -1,9 +1,7 @@
 import './App.css';
 import { useEffect , useState } from 'react';
 import PostAdd from './Components/PostAdd'
-import Dashboard from './views/Dashboard';
-import ContactUs from './views/ContactUs';
-import AboutUs from './views/AboutUs';
+
 
 function App() {
   const [list, setlist] = useState([])
@@ -20,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-       <postAdd/>
+       <PostAdd/>
       </header>
     </div>
   );
