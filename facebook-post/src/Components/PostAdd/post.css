@@ -4,6 +4,7 @@
 }
 .hero{
     width: 40%;
+    height: 665px;
     display: flex;
     background-color: white;
     justify-content: flex-start;
@@ -98,12 +99,22 @@
     color: skyblue;
     
 }
-.emoji-container {
+.emojis-container{
+    border: 1px solid black;
+    width: 60%;
+    height: 65px;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    left: 130px;
+    bottom: 110px;
+  
   }
   
-  .emoji-container span {
-    margin-right: 5px;
+  .emojis img:hover{
+    background-color: #F0F2F5;
   }
 @media screen and (min-width: 425px) {
     /* .hero-main {
