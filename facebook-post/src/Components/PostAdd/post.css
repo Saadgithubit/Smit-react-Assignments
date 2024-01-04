@@ -105,7 +105,7 @@
     height: 65px;
     background-color: #fff;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: relative;
     left: 130px;
@@ -116,10 +116,9 @@
   .emojis img:hover{
     background-color: #F0F2F5;
   }
-@media screen and (min-width: 425px) {
-    /* .hero-main {
-        display: flex;
-        flex-direction: row;
-    } */
+@media screen and (max-width: 720px) {
+    .hero{
+        width: 80%;
+    }
 }
 

@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect , useState } from 'react';
-import PostAdd from './Components/PostAdd'
-import Custombtn from './Components/CustomButton'
+import PostAdd from './Components/PostAdd/post.js'
+import Navbar from './Components/Navbar/navbar.js'
 
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Navbar/>
        <PostAdd/>
       </header>
     </div>
