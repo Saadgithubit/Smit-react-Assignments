@@ -26,7 +26,10 @@ function PostAdd() {
     }
 
     if (!list) {
-        return <div>Loading.....</div>
+        return 
+        <div>
+            <img src='https://technometrics.net/wp-content/uploads/2020/11/loading-icon-animated-gif-19-1.gif'/>
+        </div>
     }
     return (
         <div className='post'>

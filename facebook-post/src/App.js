@@ -17,11 +17,12 @@ function App() {
           
   }
   return (
-    <div className="App">
-      <header className="App-header">
-        <Navbar/>
-       <PostAdd/>
-      </header>
+    <div className="container">
+
+       <div className='navbar'> <Navbar/> </div>
+        <div className='right-side-bar'></div>
+       <div className='main'><PostAdd/></div>
+       <div className='left-side-bar'></div>
     </div>
   );
 }
