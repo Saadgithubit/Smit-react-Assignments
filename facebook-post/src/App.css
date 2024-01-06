@@ -1,35 +1,4 @@
 .container {
   text-align: center;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 80px 1fr;
-  grid-template-areas:
-   'navbar navbar navbar navbar'
-   'left-side-bar main main right-side-bar'
-  ;
-
-}
-.navbar{
- grid-area: navbar;
- border: 1px solid black;
- width: 100%;
-}
-.main{
-  width: 100%;
-  height: 100%;
-  border: 1px solid black;
-  height: auto;
- grid-area: main;
-}
-.right-side-bar{
-  background-color: #F0F2F5;
-  border: 1px solid lightgray;
- grid-area: left-side-bar;
-
-}
-.left-side-bar{
-  background-color: #F0F2F5;
-  border: 1px solid lightgray;
- grid-area: right-side-bar;
 
 }
