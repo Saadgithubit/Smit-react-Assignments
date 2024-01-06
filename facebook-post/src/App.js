@@ -19,10 +19,8 @@ function App() {
   return (
     <div className="container">
 
-       <div className='navbar'> <Navbar/> </div>
-        <div className='right-side-bar'></div>
-       <div className='main'><PostAdd/></div>
-       <div className='left-side-bar'></div>
+        <Navbar/> 
+        <PostAdd/>
     </div>
   );
 }
