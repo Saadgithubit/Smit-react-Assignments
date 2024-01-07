@@ -5,17 +5,7 @@ import Navbar from './Components/Navbar/navbar.js'
 
 
 function App() {
-  const [list, setlist] = useState([])
-  useEffect(function () {
-      getDataFromApi()
-  }, [])
-  function getDataFromApi() {
-      fetch('https://dummyjson.com/products')
-          .then(res => res.json())
-          .then(res => setlist(res.products))
-              console.log(list);
-          
-  }
+
   return (
     <div className="container">
 

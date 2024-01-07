@@ -80,10 +80,16 @@
     border-radius: 50%;
     margin-right: 5px;
 }
+@media screen and (max-width: 1024px){
+    .input input {
+        margin: 8px 10px 0 0;
 
+    }
+
+}
 @media screen and (max-width: 768px) {
     .input input {
-        margin: 4px 10px 0 0;
+        margin: 8px 10px 0 0;
 
     }
   .left{
@@ -107,7 +113,7 @@
     }
 
     .input input {
-        margin: 4px 10px 0 0;
+        margin: 8px 10px 0 0;
         width: 85%;
     }
 
