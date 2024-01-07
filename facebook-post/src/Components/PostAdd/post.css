@@ -135,9 +135,30 @@
   .emojis img:hover{
     background-color: #F0F2F5;
   }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 768px) {
     .hero{
-        width: 80%;
+        width: 60%;
     }
 }
-
+@media screen and (max-width: 425px) {
+    .hero{
+        width: 90%;
+    }
+    .reactIcons .fa-thumbs-up{
+        font-size: 20px;
+        height: 40px;
+        
+    }
+    .fa-heart{
+        font-size: 15px ;
+        height: 40px;
+    }
+    .hero-main i{
+        margin-right: 15px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .hero{
+        width: 100%;
+    }
+}
