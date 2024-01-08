@@ -10,16 +10,43 @@ function App() {
   const [minute, setminute] = useState(null);
   const [sec, setsec] = useState(59);
   const [selectedOption, setselectedOption] = useState(null)
+  const [bgcolor , setbgcolor] = useState(false)
 
   useEffect(function () {
     getApi();
   }, []);
 
   function getApi() {
-    fetch("https://mocki.io/v1/443df9a7-e317-4dc9-b7a4-904ac0d439b3")
+    fetch("https://the-trivia-api.com/v2/questions")
       .then((res) => res.json())
-      .then((res) => setquestion(res));
-    console.log(question);
+      // .then(res => console.log(res))
+      .then((res) => 
+      {
+        res.map(function(item){
+        item.options = [...item.incorrectAnswers , item.correctAnswer]
+        shuffle(item.options)
+      })
+      setquestion(res)
+        });
+      
+  }
+
+  function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle.
+    while (currentIndex > 0) {
+  
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
   }
 
   useEffect(function () {
@@ -56,6 +83,7 @@ function App() {
   function next() {
     if (selectedOption !== null) {
       setcurrentIndex(currentIndex + 1);
+      setbgcolor(true)
       setselectedOption(null)
     } else {
       alert('Please Select Any Option')
@@ -65,7 +93,7 @@ function App() {
   
   function checkAnswer(option) {
     setselectedOption(option)
-    if (option == question[currentIndex].correct_answer) {
+    if (option == question[currentIndex].correctAnswer) {
       setscore(score + 1);
       console.log(option);
     }
@@ -87,8 +115,13 @@ function App() {
   }
   return (
     <div className="App">
-      <header className="App-header">
         <h1>Quiz App</h1>
+      
+      <header className="App-header">
+     {isLastQuestion ?<div className="counting-ques">
+      <span className="span">Total Questions {question.length}/{currentIndex === 0 ? question.length:question.length-1}</span>
+        <span className="span">Passing Score 70%</span>
+        </div>:<h4>Quiz End</h4>}
         <h3>
           {minute !== null ? <span>{minute} : {sec}</span> :
             <span>5 : 00</span>}
@@ -99,7 +132,7 @@ function App() {
             {isLastQuestion ? (
               <div className="question-div">
                 <h2>
-                  Q:{currentIndex + 1} {question[currentIndex].question}
+                  Q:{currentIndex + 1} {question[currentIndex].question.text}
                 </h2>
                 {question[currentIndex].options.map(function (option) {
                   return (
