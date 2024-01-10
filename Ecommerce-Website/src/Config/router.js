@@ -17,8 +17,10 @@ import Details from "../Components/Details/details";
   ]);
 
   function Router(){
-    return
-    <RouterProvider router={router} />
+    return (
+
+      <RouterProvider router={router} />
+    )
   }
 
   export default Router;
