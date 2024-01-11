@@ -19,13 +19,18 @@ function Cards() {
         return <div>Loading ......</div>
     }
     return (
-        <div className='all-products'>
+                <div className='flex flex-wrap'>
             {products.map(function (item) {
                 console.log(item)
                 const { id } = item
                 return (
-                    <div className='card' onClick={() => navigate(`details/${id}`)}>
-                        <img src={item.images[0]} width='100%' height='60%' />
+                    <div className='border-2 w-64 mx-8 my-6' onClick={() => navigate(`details/${id}`)}>
+                        <img src={item.images[0]} className='w-full h-48' />
+                        <div className='py-6'>
+                     <h4 className='text-gray-500'>{item.brand}</h4>
+                     <h3 className='font-bold text-zinc-600'>{item.title}</h3>
+                     <h3 className='text-gray-500'>$ {item.price}</h3>
+                     </div>
 
                     </div>
                 )
