@@ -1,6 +1,7 @@
 import './details.css';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import Navbar from '../Navbar/navbar'
 
 
 function Details() {
@@ -24,6 +25,7 @@ function Details() {
 
     return (
         <div>
+           <Navbar/>
             <img src={product.images[0]}/>
             <h1>{product.title}</h1>
         </div>
