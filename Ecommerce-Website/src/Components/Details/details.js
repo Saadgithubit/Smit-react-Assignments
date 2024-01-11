@@ -26,8 +26,17 @@ function Details() {
     return (
         <div>
            <Navbar/>
-            <img src={product.images[0]}/>
+           <div className ='flex justify-around my-4'>
+            <img className = ''src={product.images[0]}/>
+            <div className='border-2 p-5 w-1/4'>
+            <h3 className = 'text-red-600'>In demand. 69 people bought this in the last 24 hours.</h3>
+            <h2 className='font-bold'>$ {product.price}</h2>
             <h1>{product.title}</h1>
+            <p className='text-left'>{product.description}</p>
+            <h5>Return & Change Excepted</h5>
+            </div>
+            
+            </div>
         </div>
     )
 }
