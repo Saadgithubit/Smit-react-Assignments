@@ -1,6 +1,7 @@
 import './dashboard.css';
 import Cards from '../../Components/Cards/card';
 import Navbar from '../../Components/Navbar/navbar';
+import Footer from '../../Components/Footer/footer';
 
 
 function Dashboard() {
@@ -8,6 +9,7 @@ function Dashboard() {
         <div>
         <Navbar/>
         <Cards />
+        <Footer/>
         </div>
     )
 }
