@@ -1,8 +1,13 @@
 import Header from "../../Components/Header/header"
+import Footer from "../../Components/Footer/footer"
 
 function Dashboard() {
     return (
-        <Header />
+        <div>
+            <Header />
+            <Footer/>
+
+        </div>
     )
 }
 

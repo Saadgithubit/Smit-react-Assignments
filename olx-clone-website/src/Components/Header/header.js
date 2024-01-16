@@ -1,6 +1,9 @@
 import './header.css'
+import { useNavigate } from 'react-router-dom'
 
 function Header() {
+    const navigate = useNavigate()
+
     return (
         <div>
              <div class="header-top">
@@ -37,10 +40,10 @@ function Header() {
                         </div>
                 </div>
                 <div class="btn-div">
-                    <button id="logIn-button">Log-In</button>
+                    <button id="logIn-button" onClick={()=>navigate('/signin')}>Log-In</button>
                     <div class="dropdown" id="userName">
                         <button class="dropdown-toggle user" id="userId" data-bs-toggle="dropdown" aria-expanded="false">
-
+                          check
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="./src/useradds/useradd.html">My Adds</a></li>
