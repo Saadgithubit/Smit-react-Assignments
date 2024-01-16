@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Navbar from '../Navbar/navbar'
 import Footer from '../Footer/footer';
-import { getSingleAdd } from '../../Config/firebase';
 
 
 function Details() {
@@ -15,15 +14,12 @@ function Details() {
         getData()
     }, [])
 
-   async function getData() {
+    function getData() {
 
-        // fetch('https://dummyjson.com/products/' + adId)
-        //     .then(res => res.json())
-        //     .then(res => setproduct(res))
-        const add = await getSingleAdd(adId)
-        setproduct(add)
-        console.log(adId);
-        console.log(add);
+        fetch('https://dummyjson.com/products/' + adId)
+            .then(res => res.json())
+            .then(res => setproduct(res))
+        
     }
 
     function increaseIndex(){
@@ -54,7 +50,7 @@ function Details() {
             <div className='flex justify-around my-8 w-full'>
                 <div className='border-2 w-2/4 p-3 flex'>
                     <i class="fa-solid fa-angle-left text-5xl mt-40 hover:text-blue-900 hover:cursor-pointer" onClick={decreaseIndex}></i>
-                    <img className='w-screen p-7' src={product.img} />
+                    <img className='w-screen p-7' src={product.images[imageIndex]} />
                     <i class="fa-solid fa-angle-right text-5xl mt-40 hover:text-blue-900 hover:cursor-pointer" onClick={increaseIndex}></i>
                 </div>
                 <div className='border-2 p-5 w-1/3 text-left'>

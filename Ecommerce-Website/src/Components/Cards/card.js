@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getAllData } from '../../Config/firebase';
 
 function Cards() {
 
@@ -10,21 +9,19 @@ function Cards() {
         getData()
     }, [])
 
-   async function getData() {
-        // fetch('https://dummyjson.com/products')
-        //     .then(res => res.json())
-        //     .then(res => setproducts(res.products))
-        // console.log(products);
-        const adds = await getAllData()
-        console.log(adds);
-        setproducts(adds)
+    function getData() {
+        fetch('https://dummyjson.com/products')
+            .then(res => res.json())
+            .then(res => setproducts(res.products))
+        
     }
+
     if (!products.length) {
         return <div>Loading ......</div>
     }
     return (
 
-        <div className='p-4 border-2'>
+        <div className=' p-4 border-2'>
             <div className='flex h-[500px]'>
                 <div className='w-1/4 bg-blue-600'>
                     <img className='h-[85%] w-full relative left-20 top-12' src='https://preview.colorlib.com/theme/aroma/img/home/hero-banner.png' />
@@ -40,14 +37,14 @@ function Cards() {
             </div>
             <div className='flex flex-wrap w-full'>
                 {products.map(function (item) {
-                    console.log(item)
                     const { id } = item
                     return (
                         <div className='border-2 w-72 mx-4 my-6 shadow-lg' onClick={() => navigate(`details/${id}`)}>
-                            <img src={item.img} className='w-full h-48 border-y-2 bg-gray-50 p-4' />
+                            <img src={item.images[0]} className='w-full h-48 border-y-2 bg-gray-50 p-4' />
                             <div className='py-6'>
-                                <h3 className='font-bold text-zinc-600 hover:text-blue-600 font-serif'>{item.title}</h3>
-                                <h3 className='text-gray-500 font-bold'>Rs {item.amount}</h3>
+                            <h3 className='text-blue-700 text-xl font-bold'>{item.brand}</h3>
+                                <h3 className='font-bold text-zinc-600 mt-2 hover:text-blue-600 font-serif'>{item.title}</h3>
+                                <h3 className='text-gray-500 font-bold'>Rs {item.price}</h3>
                             </div>
 
                         </div>
