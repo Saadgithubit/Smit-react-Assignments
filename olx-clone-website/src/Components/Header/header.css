@@ -1,0 +1,163 @@
+
+.header-top {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    padding-left: 30px;
+    word-spacing: 5px;
+    background-color: #f7f8f8;
+    width: 100%;
+}
+
+.fa-car,
+.fa-building {
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    margin-left: 30px;
+}
+
+.header-a>a,
+.header-a2>a {
+    font-size: 12px;
+    text-decoration: none;
+    color: black;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    height: 80px;
+    padding: 10px 10px 10px 0;
+    background-color: #f7f8f8;
+    width: 100%;
+
+}
+
+.sel-div {
+    width: 20%;
+}
+
+.btn-div {
+    width: 20%;
+    display: flex;
+}
+
+#inp {
+    width: 100%;
+    height: 50px;
+    border: 2px solid black;
+    padding-left: 30px;
+    border-radius: 5px;
+}
+
+.icon {
+    position: relative;
+    top: -38px;
+    left: 10px;
+}
+
+.fa-magnifying-glass {
+    width: 20px;
+    height: 20px;
+
+}
+
+.parent-inp {
+    border: 1px solid black;
+    width: 40%;
+    display: flex;
+}
+
+#input {
+    width: 90%;
+    height: 50px;
+    border: 2px solid black;
+    padding-left: 20px;
+    border-radius: 5px;
+}
+
+.icon-2 {
+    border: 1px solid black;
+    height: 50px;
+    width: 10%;
+    text-align: center;
+    font-size: 30px;
+    background-color: black;
+    color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    right: 51px;
+}
+
+#logIn-button {
+
+    border: 1px solid black;
+    position: relative;
+    right: 20px;
+    width: 80px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+#logIn-button:hover {
+    background-color: skyblue;
+    color: white;
+    opacity: 1;
+
+}
+
+.user {
+    height: 50px;
+    border-radius: 10px;
+}
+
+
+.sell {
+    width: 110px;
+    height: 50px;
+    margin-left: 10px;
+    border: 5px solid black;
+    border-radius: 20px;
+    border-top-color: aqua;
+    border-right-color: yellow;
+    border-left-color: blue;
+}
+
+
+
+
+/* .user button a:hover{
+    color: white;
+
+} */
+/* ......................................Nav-Bar........................................ */
+.nav-bar {
+    margin-top: 10px;
+}
+
+.nav-bar>ul {
+    display: flex;
+}
+
+.Categories {
+    margin: 15px 15px 15px -12px;
+}
+
+ul>li {
+    list-style: none;
+    margin: 15px;
+}
+
+ul>li:hover {
+    color: skyblue;
+    cursor: pointer;
+}
+
+.select {
+    border: none;
+    font-weight: bold;
+
+}
