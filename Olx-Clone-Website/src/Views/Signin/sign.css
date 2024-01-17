@@ -26,6 +26,7 @@ fieldset{
 .signup-inp , .signin-inp{
     width: 70%;
     height: 40px;
+    border: 1px solid black;
     margin-top: 5px;
     padding-left: 10px;
     font-size: 15px;

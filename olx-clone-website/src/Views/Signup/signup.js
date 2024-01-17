@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { register } from "../../Config/firebase";
 
 function Signup(){
     const navigate = useNavigate()
@@ -7,7 +8,16 @@ function Signup(){
     const [email , setemail] = useState()
     const [password , setpassword] = useState()
     const [contact , setcontact] = useState()
-    console.log(fullName);
+    
+    const signUp = async () => {
+       try {
+         await register({fullName,email,password,contact})
+       }
+        catch(e){
+        alert(e.message)
+       }
+    }
+
     return(
         <div>
               <fieldset>
@@ -27,7 +37,7 @@ function Signup(){
     <h5>Confirm Password</h5>
     <input type="password" onChange={(e)=>{setpassword(e.target.value)}} placeholder="Confirm Your Password" class="signup-inp" required="required" id="con-password"/><br/><br/>
 
-    <button class="signup-btn" id="signUp-btn">Sign Up</button>
+    <button class="signup-btn" onClick={signUp}>Sign Up</button>
     <p class="para">Already registered <span onClick={()=>navigate('/signin')}>Sign In</span></p>
 </fieldset>
         </div>

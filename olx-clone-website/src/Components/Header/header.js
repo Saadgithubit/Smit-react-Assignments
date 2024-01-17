@@ -1,11 +1,34 @@
 import './header.css'
 import { useNavigate } from 'react-router-dom'
 
+
 function Header() {
     const navigate = useNavigate()
 
     return (
         <div>
+             <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header off">
+          <h5 class="offcanvas-title p-3" id="offcanvasNavbarLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <form class="d-flex flex-column" role="search">
+            <span class="nav-login-btn"><a href="./src/signin.html">log In</a></span>
+            <span class="nav-sell-btn"><a href="./src/AddsPosts/post.html">Start Selling</a></span>
+            <span class="nav-sell-btn"><a href="./src/useradds/useradd.html">My Adds</a></span>
+            <span class="nav-sell-btn"><a class="dropdown-item" id="signout" href="">Sign Out</a></span>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
              <div class="header-top">
 
 <div class="header-img">
@@ -20,7 +43,7 @@ function Header() {
 </div>
             <div class="header">
                 <div class="olx-img">
-                    <img src="" class="hidden" alt=""/>
+                    <img src=".././Images/Capture 2.PNG" class="hidden" alt=""/>
                 </div>
 
                 <div class="sel-div">
@@ -50,7 +73,7 @@ function Header() {
                             <li><a class="dropdown-item" id="signout" href="">Sign Out</a></li>
                         </ul>
                     </div>
-                    <button class="sell" id="sell-btn"> <b> +Sell </b></button>
+                    <button class="sell" onClick={()=>navigate('/addpost')}> <b> +Sell </b></button>
                 </div>
             </div>
 

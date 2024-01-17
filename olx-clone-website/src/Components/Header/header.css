@@ -1,3 +1,43 @@
+.navbar {
+    display: none !important;
+    width: 12%;
+    height: 50px;
+    position: absolute !important;
+    top: 6px;
+    left: 0;
+
+
+}
+
+.user-img {
+    font-size: 25px;
+    border: 1px solid black !important;
+    border-radius: 50%;
+    padding: 10px;
+    margin-right: 5px;
+}
+
+.nav-div {
+    width: 100% !important;
+}
+
+.nav-icon {
+    width: 100% !important;
+}
+
+.fa-user {
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 22px;
+    margin-right: 20px;
+}
+
+.nav-login-btn a,
+.nav-sell-btn a {
+    text-decoration: none;
+    color: black;
+}
 
 .header-top {
     display: flex;
