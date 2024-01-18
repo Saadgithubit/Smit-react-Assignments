@@ -38,7 +38,7 @@ import { addPostToDb } from '../../Config/firebase'
         <div class="img-div">
         <input onChange={(e)=>setimg(e.target.files[0])} type="file" name="upload"/>
     </div>
-     <button onClick={addPost}>Post</button>
+     <button onClick={addPost} className='post-btn'>Post</button>
     </div>
 
         </div>

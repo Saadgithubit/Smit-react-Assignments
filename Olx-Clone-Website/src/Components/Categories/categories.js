@@ -1,19 +1,20 @@
 import './categories.css'
+import Capture7 from '../../Images/Capture 7.PNG'
 
 function Categories(){
     return(
-        <div>
+        <div className='container'>
 
   <div id="carouselExample" class="carousel slide">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src=".././Images/Capture 7.PNG" class="d-block w-100" alt="..."/>
+        <img src={Capture7} class="d-block w-100" alt="..."/>
       </div>
       <div class="carousel-item">
-        <img src="./Images/Capture 7.PNG" class="d-block w-100" alt="..."/>
+        <img src={Capture7} class="d-block w-100" alt="..."/>
       </div>
       <div class="carousel-item">
-        <img src="./Images/Capture 7.PNG" class="d-block w-100" alt="..."/>
+        <img src={Capture7} class="d-block w-100" alt="..."/>
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -27,7 +28,7 @@ function Categories(){
   </div>
 
   <div class="h3">
-    <h3>All Categories</h3>
+    <h3 className='ml-5'>All Categories</h3>
 
   </div>
 

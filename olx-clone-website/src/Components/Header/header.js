@@ -1,5 +1,6 @@
 import './header.css'
 import { useNavigate } from 'react-router-dom'
+import Capture from '../../Images/Capture 2.PNG'
 
 
 function Header() {
@@ -43,7 +44,7 @@ function Header() {
 </div>
             <div class="header">
                 <div class="olx-img">
-                    <img src=".././Images/Capture 2.PNG" class="hidden" alt=""/>
+                    <img src={Capture}  alt="" width='80px'/>
                 </div>
 
                 <div class="sel-div">
@@ -80,7 +81,7 @@ function Header() {
             <div>
             </div>
 
-            <div class="container-fluid nav-bar">
+            <div class="container pl-6 nav-bar">
                 <ul class="ul">
                     <li class="Categories"> <select class="select">
                         <option class="option">All Categories</option>
