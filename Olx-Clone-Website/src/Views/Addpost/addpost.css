@@ -1,0 +1,75 @@
+
+
+#upload-files{
+    display: none;
+}
+
+.form{
+    border:  1px solid black;
+    width: 90%;
+    padding: 2px;
+    margin: auto;
+    
+}
+
+.inner-form{
+    border: 1px solid black;
+    width: 90%;
+    margin: 20px;
+    padding: 20px;
+}
+
+.inner-form input{
+    width: 80%;
+    height: 50px;
+    font-size: 18px;
+    border:  1px solid black;
+    padding-left: 10px;
+}
+.clicked-items{
+    border-color: skyblue;
+}
+
+#description{
+    height: 100px;
+}
+
+.img-div{
+    margin: 20px;
+}
+
+.img-div img{
+    width: 100%;
+    height: 100%;
+}
+
+.post-btn{
+    width: 130px;
+    height: 50px;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(34, 40, 151);
+    margin: 20px 30px;
+}
+
+@media only screen and (min-width: 426px) and (max-width: 768px){
+    .inner-form{
+        margin-left: 10px;
+    }
+    .img-div{
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 425px){
+    .form{
+        width: 100%;
+    }
+    .inner-form{
+        border: none;
+        margin: 0;
+    }
+    .img-div{
+        width: 70%;
+    }
+}
