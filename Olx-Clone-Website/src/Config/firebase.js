@@ -1,8 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth , createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { getFirestore ,collection, getDocs,doc, addDoc,getDoc,setDoc } from "firebase/firestore";
-import { getStorage , ref, uploadBytes, getDownloadURL,  } from "firebase/storage";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, collection, getDocs, doc, addDoc, getDoc, setDoc } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL, } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD0CbzxPtsrdDpY7Gfx5BSV0FRi1rmPxkY",
@@ -21,68 +21,72 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 
 
- async function register(userDetails){
-  const{ fullName,email,password,contact } = userDetails
+async function register(userDetails) {
+  const { fullName, email, password, contact } = userDetails
 
- const { user:{ uid } }= await createUserWithEmailAndPassword(auth, email, password)
- 
-const userRef = doc(db, 'users', uid);
-await setDoc(userRef, { fullName,email,contact,password });
+  const { user: { uid } } = await createUserWithEmailAndPassword(auth, email, password)
 
-alert('Register Successfull')
-  
+  const userRef = doc(db, 'users', uid);
+  await setDoc(userRef, { fullName, email, contact, password });
+
+  alert('Register Successfull')
+
 }
 
- async function logIn(userDetails){
-  const {email,password} = userDetails
+async function logIn(userDetails) {
+  const { email, password } = userDetails
 
   await signInWithEmailAndPassword(auth, email, password)
 
-  alert ('Log In Successfull')
+  alert('Log In Successfull')
 
 }
- async function getAllDataFromFirebase(){
+async function getAllDataFromFirebase() {
 
-const querySnapshot = await getDocs(collection(db, "adds"));
-const products = []
-querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  products.push({ id:doc.id, ...doc.data()})
-});
+  const querySnapshot = await getDocs(collection(db, "adds"));
+  const products = []
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    products.push({ id: doc.id, ...doc.data() })
+  });
 
-return products;
+  return products;
 }
 
- async function getSingleData(id){
+async function getSingleData(id) {
   const docRef = doc(db, "adds", id);
-const docSnap = await getDoc(docRef);
+  const docSnap = await getDoc(docRef);
 
-if (docSnap.exists()) {
-  console.log("Document data:", docSnap.data());
-} else {
-  // docSnap.data() will be undefined in this case
-  console.log("No such document!");
+  if (docSnap.exists()) {
+    console.log("Document data:", docSnap.data());
+  } else {
+    // docSnap.data() will be undefined in this case
+    console.log("No such document!");
+  }
 }
-}
 
-async function addPostToDb(add){
+async function addPostToDb(add) {
+  const {images} = add
 
-   const storageRef = ref(storage, `${add.img.name}`);
+  images.map(async function (item) {
 
-    await uploadBytes(storageRef, add.img)
+    const storageRef = ref(storage, `${item.name}`);
+
+    await uploadBytes(storageRef, item)
 
     const url = await getDownloadURL(storageRef)
 
-    add.img = url
+    item = url
+  })
 
-    const docRef = await addDoc(collection(db, "adds"), add)
-    alert('Post Add Successfull')
-  
- }
+  const docRef = await addDoc(collection(db, "adds"), add)
+  alert('Post Add Successfull')
 
- 
+}
 
-export{
+
+
+export {
   register,
   logIn,
   getAllDataFromFirebase,

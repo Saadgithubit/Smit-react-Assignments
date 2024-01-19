@@ -24,6 +24,7 @@
     height: 50px;
     font-size: 18px;
     border:  1px solid black;
+    padding-left: 10px;
 }
 .clicked-items{
     border-color: skyblue;
