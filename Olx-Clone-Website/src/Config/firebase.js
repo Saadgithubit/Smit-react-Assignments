@@ -58,11 +58,14 @@ async function getSingleData(id) {
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
+    const ad = docSnap.data()
+    return ad
     console.log("Document data:", docSnap.data());
   } else {
     // docSnap.data() will be undefined in this case
     console.log("No such document!");
   }
+
 }
 
 async function addPostToDb(add) {
