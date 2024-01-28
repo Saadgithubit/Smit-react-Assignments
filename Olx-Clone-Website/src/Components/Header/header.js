@@ -1,9 +1,17 @@
 import './header.css'
 import { useNavigate } from 'react-router-dom'
 import Capture from '../../Images/Capture 2.PNG'
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 
 function Header() {
+  const auth = getAuth();
+  // console.log(auth);
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+
+//   }
+// });
     const navigate = useNavigate()
 
     return (

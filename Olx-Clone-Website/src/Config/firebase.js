@@ -87,6 +87,12 @@ async function addPostToDb(add) {
 
 }
 
+async function getUser(){
+  const userData = await getDocs(collection(db, "users"));
+
+  return userData
+}
+
 
 
 export {
@@ -95,5 +101,6 @@ export {
   getAllDataFromFirebase,
   getSingleData,
   getAuth,
-  addPostToDb
+  addPostToDb,
+  getUser
 }
