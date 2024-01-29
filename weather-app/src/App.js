@@ -4,14 +4,15 @@ import  Dashboard  from './Components/Dashboard/dashboard';
 import Weather from './Components/Weather/weather';
 
 function App() {
-  const [atShow,setatShow] = useState(false)
+  const [weatherShow,setweatherShow] = useState(false)
 
-
+const toggle = (value) => {
+setweatherShow(value)
+}
 
   return (
     <div className='app'>
-      {/* {!atShow?<Dashboard data={atShow}/>: <Weather/>} */}
-      <Weather/>
+      {!weatherShow?<Dashboard toggle={toggle}/>: <Weather/>}
     </div>
   );
 }
