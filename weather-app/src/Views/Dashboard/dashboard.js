@@ -1,11 +1,9 @@
 import { useState } from 'react'
 import './dashboard.css'
-import Weather from '../Weather/weather'
+import { useNavigate } from 'react-router-dom'
 
-function Dashboard(props){
-    const {toggle} = props
-  const weather = true
-
+function Dashboard(){
+   const navigate = useNavigate()
 return(
     <div className="main">
     <div className='ineer'>
@@ -13,7 +11,7 @@ return(
         <h1>Weather App</h1>
         <h4>29 January 2024</h4>
         </div>
-        <button className='start-btn' onClick={() => toggle(weather)}>Get Started</button>
+        <button className='start-btn' onClick={() => navigate('weather')}>Get Started</button>
     </div>
     </div>
 )

@@ -5,16 +5,24 @@
     background-size: cover;
     box-shadow: 10px 10px 20px #E5C2C0;
     border-radius: 20px;
-    width: 60%;
-    height: 70%;
+    width: 80%;
+    height: auto;
     padding: 10px;
-    padding-top: 60px;
     gap: 30px;
     display: flex;
-    justify-content: center ;
+    align-items: center ;
     flex-direction: column;
 }
 
+.heading{
+    font-size: 50px;
+}
+.input-div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
 .weather-div input{
     background-color: #BDC6C3;
     width: 50%;
@@ -35,4 +43,38 @@
     font-size: 16px;
     font-weight: bold;
     letter-spacing: 1px;
+}
+
+.weather-display{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    padding: 20px;
+    height: auto;
+}
+
+.weather-display h3{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.history-btn{
+    background-color: #0F4791;
+    border: none;
+    color: white;
+    border-radius: 20px;
+    width: 170px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    align-self: center;
+}
+.history-btn:hover , .search-btn:hover{
+
+    background-color: #31093D;
 }
