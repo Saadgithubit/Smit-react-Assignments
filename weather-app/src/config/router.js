@@ -16,6 +16,7 @@ const router = createBrowserRouter([
         element: <Weather/>,
       },
   ]);
+  
 
   function Router(){
     return(

@@ -1,31 +1,35 @@
-.main{
-    width: 80%;
-    height: 80%;
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.ineer{
+
+.ineer {
     background-image: url('https://ubuntuhandbook.org/wp-content/uploads/2021/07/M-Maggs-pixabay.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     box-shadow: 10px 10px 20px #E5C2C0;
     border-radius: 20px;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     padding: 10px;
     display: flex;
     justify-content: space-around;
-    align-items: center ;
+    align-items: center;
 }
 
-.ineer h1{
+.ineer h1 {
     font-size: 50px;
 }
 
-.ineer h4{
+.ineer h4 {
     font-size: 25px;
 }
 
-.start-btn{
+.start-btn {
     background-color: #0F4791;
     border: none;
     color: white;
@@ -39,6 +43,6 @@
     letter-spacing: 1px;
 }
 
-.start-btn:hover{
+.start-btn:hover {
     background-color: #230D3C;
 }

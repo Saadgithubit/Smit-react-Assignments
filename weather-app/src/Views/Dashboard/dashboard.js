@@ -4,8 +4,9 @@ import { useNavigate } from 'react-router-dom'
 
 function Dashboard(){
    const navigate = useNavigate()
+
 return(
-    <div className="main">
+    <div className="container">
     <div className='ineer'>
         <div>
         <h1>Weather App</h1>
