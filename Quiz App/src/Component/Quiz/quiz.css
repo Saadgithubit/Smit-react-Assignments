@@ -1,0 +1,139 @@
+.App {
+    text-align: center;
+    border: 1px solid white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('https://t4.ftcdn.net/jpg/04/39/13/37/360_F_439133763_FrLdhZsd5aGC23r9ATARuKJBr8ifZjIe.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: -30px;
+   
+  }
+  
+  .App-header {
+    border: 1px solid white;
+    border-radius: 20px;
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    padding: 30px;
+    background: transparent;
+    backdrop-filter: blur(8px);
+  }
+  
+  h1{
+    font-size: 60px;
+  }
+  
+  .theme{
+    width:30%;
+    height: 70px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+  
+  }
+  .theme-font{
+    width: 20%;
+    border:  none;
+  }
+  .black-box{
+    background-color: black;
+    width: 15%;
+    height: 80%;
+    cursor: pointer;
+  }
+  
+  .white-box{
+    background-color: white;
+    width: 15%;
+    height: 80%;
+    cursor: pointer;
+  
+  }
+  
+  .quiz{
+    width: 100%;
+    display: flex ;
+    justify-content: center;
+    padding: 30px;
+  }
+  .counting-ques{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+  
+  }
+  
+  .question-div {
+    border: 1px solid white;
+    margin-top: -30px;
+    width: 100%;
+  }
+  
+   h3{
+    border: 1px solid white;
+    width: 30%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+  
+  }
+  
+  .question-div h2 {
+    font-size: 25px;
+    padding: 10px;
+    text-align: justify;
+    height: 70px;
+    padding: 10px;
+    border-bottom: 3px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .question-div p {
+    border-radius: 20px;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 20px;
+    margin-top: 30px;
+  }
+  
+  .question-div p input{
+    width: 20px;
+    margin-bottom: 5px;
+  }
+  
+  button {
+    width: 100px;
+    height: 50px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 20px;
+  }
+  
+  @media only screen and (max-width: 768px){
+    h1{
+      font-size: 60px;
+    }
+    .question-div{
+      width: 100%;
+    }
+    h3{
+      width: 60%;
+    }
+  }
+  
