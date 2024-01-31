@@ -32,6 +32,36 @@ h1{
   font-size: 60px;
 }
 
+.theme{
+  width:30%;
+  height: 70px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+
+}
+.theme-font{
+  width: 20%;
+  border:  none;
+}
+.black-box{
+  background-color: black;
+  width: 15%;
+  height: 80%;
+  cursor: pointer;
+}
+
+.white-box{
+  background-color: white;
+  width: 15%;
+  height: 80%;
+  cursor: pointer;
+
+}
+
 .quiz{
   width: 100%;
   display: flex ;

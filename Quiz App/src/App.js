@@ -1,6 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
+import store from "./Store/store";
+import { Provider, useDispatch } from 'react-redux'
 
 function App() {
   const [question, setquestion] = useState([]);
@@ -11,6 +13,7 @@ function App() {
   const [sec, setsec] = useState(59);
   const [selectedOption, setselectedOption] = useState(null)
   const [bgcolor , setbgcolor] = useState(false)
+  const dispatch = useDispatch()
 
   useEffect(function () {
     getApi();
@@ -114,9 +117,15 @@ function App() {
     <div>Loading....</div>;
   }
   return (
+    <Provider store={store}>
+    
     <div className="App">
         <h1>Quiz App</h1>
-      
+      <div className="theme">
+        <h3 className="theme-font">Theme</h3>
+        <div className="black-box"></div>
+        <div className="white-box"></div>
+      </div>
       <header className="App-header">
      {isLastQuestion ?<div className="counting-ques">
       <span className="span">Total Questions {question.length}/{currentIndex === 0 ? question.length:question.length-1}</span>
@@ -154,7 +163,8 @@ function App() {
         )}
       </header>
     </div>
-  );
+    </Provider>
+  )
 }
 
 export default App;
