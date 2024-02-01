@@ -1,20 +1,36 @@
 import './header.css'
 import { useNavigate } from 'react-router-dom'
 import Capture from '../../Images/Capture 2.PNG'
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { auth, onAuthStateChanged, getUser,logOut } from '../../Config/firebase';
+import { useState } from 'react';
 
 
 function Header() {
-  const auth = getAuth();
-  // console.log(auth);
-// onAuthStateChanged(auth, (user) => {
-//   if (user) {
-
-//   }
-// });
+  const [user,setUser] = useState('User')
+  const [userDetails ,setuserDetails] = useState(false)
+ 
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    
+    const id = auth.currentUser.uid
+    const userData = await getUser(id)
+    const { fullName } = userData
+    setuserDetails(true)
+    setUser(userData.fullName)
+    console.log(id,fullName);
+  }else{
+    setUser("User")
+    setuserDetails(false)
+  }
+});
     const navigate = useNavigate()
 
+    // if(!userData){
+
+    // }
+
     return (
+      
         <div>
              <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
@@ -32,7 +48,7 @@ function Header() {
             <span class="nav-login-btn"><a href="./src/signin.html">log In</a></span>
             <span class="nav-sell-btn"><a href="./src/AddsPosts/post.html">Start Selling</a></span>
             <span class="nav-sell-btn"><a href="./src/useradds/useradd.html">My Adds</a></span>
-            <span class="nav-sell-btn"><a class="dropdown-item" id="signout" href="">Sign Out</a></span>
+            <span class="nav-sell-btn" onClick={logOut}><a class="dropdown-item" id="signout" href="">Sign Out</a></span>
           </form>
         </div>
       </div>
@@ -72,16 +88,22 @@ function Header() {
                         </div>
                 </div>
                 <div class="btn-div">
-                    <button id="logIn-button" onClick={()=>navigate('/signin')}>Log-In</button>
-                    <div class="dropdown" id="userName">
+
+                   {!userDetails ? <button id="logIn-button" onClick={()=>navigate('/signin')}>Log-In</button>
+                   :
+                   <div class="dropdown" id="userName">
                         <button class="dropdown-toggle user" id="userId" data-bs-toggle="dropdown" aria-expanded="false">
-                          check
+                          {user}
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="./src/useradds/useradd.html">My Adds</a></li>
                             <li><a class="dropdown-item" id="signout" href="">Sign Out</a></li>
                         </ul>
                     </div>
+                   } 
+                    
+                    
+                    
                     <button class="sell" onClick={()=>navigate('/addpost')}> <b> +Sell </b></button>
                 </div>
             </div>

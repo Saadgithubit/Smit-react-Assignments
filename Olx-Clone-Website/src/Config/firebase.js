@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { getFirestore, collection, getDocs, doc, addDoc, getDoc, setDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL, } from "firebase/storage";
 
@@ -69,7 +69,7 @@ async function getSingleData(id) {
 }
 
 async function addPostToDb(add) {
-  const {images} = add
+  const { images } = add
 
   images.map(async function (item) {
 
@@ -87,12 +87,31 @@ async function addPostToDb(add) {
 
 }
 
-async function getUser(){
-  const userData = await getDocs(collection(db, "users"));
+async function getUser(uid) {
+  const docRef = doc(db, "users", uid);
+  const docSnap = await getDoc(docRef);
 
-  return userData
+  if (docSnap.exists()) {
+    const userDetail = docSnap.data()
+    return userDetail
+
+  } else {
+    // docSnap.data() will be undefined in this case
+    console.log("No such document!");
+  }
+
 }
 
+
+function logOut(){
+  const auth = getAuth();
+signOut(auth).then(() => {
+  alert('Sign-out successful')
+  // Sign-out successful.
+}).catch((error) => {
+  // An error happened.
+});
+}
 
 
 export {
@@ -100,7 +119,9 @@ export {
   logIn,
   getAllDataFromFirebase,
   getSingleData,
-  getAuth,
+  auth,
   addPostToDb,
-  getUser
+  getUser,
+  onAuthStateChanged,
+  logOut
 }
