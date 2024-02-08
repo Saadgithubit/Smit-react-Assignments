@@ -147,10 +147,8 @@
     opacity: 1;
 
 }
-
-.user {
-    height: 50px;
-    border-radius: 10px;
+.dropdown-menu{
+    width: 250px;
 }
 
 
@@ -198,5 +196,213 @@ ul>li:hover {
 .select {
     border: none;
     font-weight: bold;
+
+}
+
+@media only screen and (min-width: 426px) and (max-width: 768px){
+    .navbar {
+        display: block !important;
+    }
+
+    .nav-login-btn,
+    .nav-sell-btn {
+        width: 100%;
+        font-size: 23px;
+        height: 60px !important;
+        margin-top: 10px;
+    }
+
+    .nav-login-btn a,
+    .nav-sell-btn a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .off {
+        height: 90px;
+        border-bottom: 1px solid black !important;
+    }
+
+    .header-top {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 0;
+    }
+
+    .user {
+        position: absolute;
+        left: 5%;
+        top: 0%;
+        width: 80%;
+    }
+
+    .user p {
+        width: 80% !important;
+    }
+
+    .user a button {
+        border: none;
+    }
+
+
+
+    .hidden,
+    .sel-div,
+    .btn-div,
+    .sell,
+    .ul,
+    ul>li,
+    .olx-img {
+        display: none;
+    }
+
+    .header {
+        width: 100%;
+        display: flex;
+        padding: 0;
+    }
+
+    .parent-inp {
+        width: 90%;
+        justify-content: center;
+    }
+
+    #input {
+        width: 80%;
+        height: 60px;
+        font-size: 20px;
+        padding-left: 80px;
+        border-radius: 10px;
+    }
+
+    .icon-2 {
+        /* position: relative;
+        left: 619px;
+        bottom: 70px; */
+        height: 60px;
+    }
+
+    /* .icon-2{
+        height: 70px;
+        position: absolute;
+        top: 65px;
+        right: 30px;
+     } */
+
+    .search-bar {
+        height: 100%;
+    }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 425px){
+    .navbar {
+        display: block !important;
+    }
+
+    .nav-div {
+        width: 90% !important;
+    }
+
+    .nav-icon {
+        width: 80% !important;
+    }
+
+    .nav-login-btn,
+    .nav-sell-btn {
+        width: 100%;
+        padding-left: 20px;
+        font-size: 18px;
+        height: 60px !important;
+        margin-top: 10px;
+    }
+
+    .nav-login-btn a,
+    .nav-sell-btn a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .off {
+        height: 90px;
+        border-bottom: 1px solid black !important;
+    }
+
+    .offcanvas {
+        width: 90% !important;
+    }
+
+    .header-top {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        padding-left: 40px;
+    }
+
+    .user {
+        position: absolute;
+        left: 0%;
+        top: 0%;
+        width: 70%;
+    }
+
+    .user p {
+        margin-top: 10px;
+        font-size: 18px;
+        width: 80% !important;
+    }
+
+    .user a button {
+        border: none;
+        width: 80px;
+        font-size: 15px !important;
+    }
+
+    .hidden,
+    #inp,
+    .sel-div,
+    .btn-div,
+    .sell,
+    .ul,
+    ul>li,
+    .olx-img {
+        display: none;
+    }
+
+    .header {
+        display: flex;
+        padding: 0;
+    }
+
+    .parent-inp {
+        width: 100%;
+    }
+
+    #input {
+        display: inline-block;
+        width: 100%;
+        height: 60px;
+        font-size: 17px;
+        padding-left: 20px;
+        border-radius: 10px;
+
+    }
+
+    .icon-2 {
+        width: 15%;
+        height: 60px;
+    }
+
+    .carousel-inner {
+        height: 180px;
+    }
+
+    .carousel-inner .carousel-item img {
+        height: 100%;
+    }
+
+    .search-bar {
+        height: 100%;
+    }
 
 }

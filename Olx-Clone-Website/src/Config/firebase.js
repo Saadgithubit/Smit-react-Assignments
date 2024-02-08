@@ -69,18 +69,17 @@ async function getSingleData(id) {
 }
 
 async function addPostToDb(add) {
-  const { images } = add
+  
 
-  images.map(async function (item) {
+    const storageRef = ref(storage, `${add.img.name}`);
 
-    const storageRef = ref(storage, `${item.name}`);
-
-    await uploadBytes(storageRef, item)
+    await uploadBytes(storageRef, add.img)
 
     const url = await getDownloadURL(storageRef)
 
-    item = url
-  })
+    add.img = url
+  
+ 
 
   const docRef = await addDoc(collection(db, "adds"), add)
   alert('Post Add Successfull')
@@ -104,11 +103,12 @@ async function getUser(uid) {
 
 
 function logOut(){
-  const auth = getAuth();
-signOut(auth).then(() => {
+signOut(auth)
+.then(() => {
   alert('Sign-out successful')
   // Sign-out successful.
 }).catch((error) => {
+  alert(error)
   // An error happened.
 });
 }
