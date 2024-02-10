@@ -69,21 +69,28 @@ async function getSingleData(id) {
 }
 
 async function addPostToDb(add) {
-  
+  const imagesUrls = [];
+  try {
+    await Promise.all(add.allImages.map(async (image) => {
+      const storageRef = ref(storage, `${image.name}`);
+      await uploadBytes(storageRef, image);
+      const url = await getDownloadURL(storageRef);
+      imagesUrls.push(url);
+    }));
 
-    const storageRef = ref(storage, `${add.img.name}`);
+    add.images = imagesUrls;
 
-    await uploadBytes(storageRef, add.img)
-
-    const url = await getDownloadURL(storageRef)
-
-    add.img = url
-  
- 
-
-  const docRef = await addDoc(collection(db, "adds"), add)
-  alert('Post Add Successfull')
-
+    console.log(add.url);
+    const docRef = await addDoc(collection(db, "adds"), {
+      title: add.title,
+      amount: add.amount,
+      description: add.description,
+      images: add.images
+    });
+    alert('Post Add Successful');
+  } catch(error) {
+    console.error('Error saving images URL', error.message);
+  }
 }
 
 async function getUser(uid) {
@@ -102,15 +109,15 @@ async function getUser(uid) {
 }
 
 
-function logOut(){
-signOut(auth)
-.then(() => {
-  alert('Sign-out successful')
-  // Sign-out successful.
-}).catch((error) => {
-  alert(error)
-  // An error happened.
-});
+function logOut() {
+  signOut(auth)
+    .then(() => {
+      alert('Sign-out successful')
+      // Sign-out successful.
+    }).catch((error) => {
+      alert(error)
+      // An error happened.
+    });
 }
 
 
@@ -123,5 +130,5 @@ export {
   addPostToDb,
   getUser,
   onAuthStateChanged,
-  logOut
+  logOut,
 }

@@ -14,7 +14,7 @@ function Cards() {
 
     async function getData() {
         const data = await getAllDataFromFirebase()
-
+console.log(data);
         setproducts(data)
         // fetchdata(data)
 
@@ -35,7 +35,7 @@ function Cards() {
                     const { id } = item
                     return (
                         <div className='border-2 w-72 pb-4 mx-2 my-6 shadow-lg' onClick={() => navigate(`details/${id}`)}>
-                            <img src={item.img} className='w-full h-48 border-y-2 p-1' />
+                            <img src={item.images[1]} className='w-full h-48 border-y-2 p-1' />
                             <div className='px-6'>
                                 <div className='flex justify-between py-2'>
                                     <h3 className='mt-2 font-bold'>Rs {item.amount}</h3>

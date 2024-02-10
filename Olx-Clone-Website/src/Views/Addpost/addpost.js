@@ -9,20 +9,17 @@ import GoogleMap from './mapLocation'
     const [title,settitle] = useState()
     const [amount,setamount] = useState()
     const [description,setdescription] = useState()
-    const [img,setimg] = useState()
     const [img1 ,setimg1] = useState()
     const [img2 ,setimg2] = useState()
     const [img3 ,setimg3] = useState()
     const [img4 ,setimg4] = useState()
-    const images = [img1,img2,img3,img4]
+    const allImages = [img1,img2]
 
     
-    console.log('images' , images);
-   
         
     
     const addPost = async() => {
-        const add = {title, amount , description, img}
+        const add = {title, amount , description, allImages}
        try{
            await addPostToDb(add)
            navigate('/')
@@ -47,7 +44,7 @@ import GoogleMap from './mapLocation'
         
     </div>
         <div class="img-div">
-        <input onChange={(e)=>setimg(e.target.files[0])} type="file" name="upload"/>
+        <input onChange={(e)=>setimg1(e.target.files[0])} type="file" name="upload"/>
         <input onChange={(e)=>setimg2(e.target.files[0])} type="file" name="upload"/>
         <input onChange={(e)=>setimg3(e.target.files[0])} type="file" name="upload"/>
         <input onChange={(e)=>setimg4(e.target.files[0])} type="file" name="upload"/>
