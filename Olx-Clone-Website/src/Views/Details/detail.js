@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom"
 import { getSingleData } from "../../Config/firebase";
 import { useEffect,  useState } from "react";
-import Footer from "../../Components/Footer/footer";
 
 function Details(){
     const { id } = useParams()
     const [product, setproduct] = useState('')
+    const [imageIndex,setimageIndex] = useState(0)
 
     useEffect(()=>{
       singleData()
@@ -14,7 +14,19 @@ function Details(){
     async function singleData(){
         const data = await getSingleData(id)
         setproduct(data)
-        console.log('product --> ',product);
+    }
+    function increaseIndex(){
+        setimageIndex(imageIndex + 1)
+        if(imageIndex === product.images.length -1){
+            setimageIndex(0)
+        }
+    }
+    function decreaseIndex(){
+        setimageIndex(imageIndex - 1)
+        if(imageIndex === 0){
+            setimageIndex(product.images.length -1)
+        }
+
     }
     const {title,amount,images,description} = product
     if(product == ''){
@@ -25,8 +37,12 @@ function Details(){
         <div>
           <div className="w-full my-4 flex">
             <div className="w-2/3 border-2 left">
-                <img className="w-full h-96 p-8 bg-black" src={images[0]} />
-            <div className="border-2 p-2">
+                <div className="flex justify-between p-2">
+            <i class="fa-solid fa-angle-left text-5xl mt-44 hover:text-blue-900 hover:cursor-pointer" onClick={increaseIndex}></i>
+                <img className="w-3/4 p-4 h-auto bg-black" src={images[imageIndex]} />
+                <i class="fa-solid fa-angle-right text-5xl mt-44 hover:text-blue-900 hover:cursor-pointer" onClick={decreaseIndex}></i>
+                </div>
+                 <div className="border-2 p-2">
                 <div className="flex justify-between">
                 <h3 className="text-2xl font-bold">Rs {amount}</h3>
                 <div className="icons">
@@ -47,7 +63,6 @@ function Details(){
                 <button className="border-2 border-black w-full p-3 my-2 text-xl"><i class="fa-regular fa-comments mx-3 "></i>Chat</button>
             </div>
           </div>
-          <Footer/>
             </div>
     )
 }

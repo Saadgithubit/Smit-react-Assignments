@@ -10,6 +10,7 @@ import Details from "../Views/Details/detail";
 import Addpost from "../Views/Addpost/addpost";
 import Header from "../Components/Header/header";
 import Footer from "../Components/Footer/footer";
+import MyAdds from "../Views/MyAdds/myadds";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         path: "/addpost",
         element: <Addpost />,
       },
+      {
+        path: "/myadds",
+        element: <MyAdds />,
+      },
     ]
   },
   {
@@ -46,6 +51,7 @@ function Layout() {
   return <div>
     <Header />
     <Outlet/>
+    <Footer/>
   </div>
 }
 

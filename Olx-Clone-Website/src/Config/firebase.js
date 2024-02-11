@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
-import { getFirestore, collection, getDocs, doc, addDoc, getDoc, setDoc } from "firebase/firestore";
+import { getFirestore, collection, getDocs, doc, where, query, addDoc, getDoc, setDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL, } from "firebase/storage";
 
 const firebaseConfig = {
@@ -68,6 +68,21 @@ async function getSingleData(id) {
 
 }
 
+async function getUserAdds(id) {
+
+  const adRef = collection(db, "adds")
+  const querySnapshot = await getDocs(query(adRef, where("id", "==", id)));
+  // console.log(userId);
+
+  querySnapshot.forEach((doc) => {
+    const adds = []
+    // console.log(doc.id, " => ", doc.data());
+    adds.push({ id: doc.id, ...doc.data() })
+    console.log(adds);
+    return adds
+  });
+}
+
 async function addPostToDb(add) {
   const imagesUrls = [];
   try {
@@ -85,10 +100,11 @@ async function addPostToDb(add) {
       title: add.title,
       amount: add.amount,
       description: add.description,
-      images: add.images
+      images: add.images,
+      id: add.userId
     });
     alert('Post Add Successful');
-  } catch(error) {
+  } catch (error) {
     console.error('Error saving images URL', error.message);
   }
 }
@@ -131,4 +147,5 @@ export {
   getUser,
   onAuthStateChanged,
   logOut,
+  getUserAdds
 }

@@ -27,6 +27,11 @@ function GoogleMap(){
                         📍
                       </p>
                       </Marker>
+                      <div>
+            <i class="fa-solid fa-angle-left text-5xl mt-40 hover:text-blue-900 hover:cursor-pointer"></i>
+            <i class="fa-solid fa-angle-right text-5xl mt-40 hover:text-blue-900 hover:cursor-pointer"></i>
+
+                      </div>
   </Map>
 }
 

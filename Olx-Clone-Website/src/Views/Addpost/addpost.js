@@ -1,10 +1,13 @@
 import './addpost.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { addPostToDb } from '../../Config/firebase'
 import GoogleMap from './mapLocation'
 
  function Addpost(){
+  const userId = useSelector(state => state.userReducer.user.id)
+  console.log(userId);
     const navigate = useNavigate()
     const [title,settitle] = useState()
     const [amount,setamount] = useState()
@@ -19,7 +22,7 @@ import GoogleMap from './mapLocation'
         
     
     const addPost = async() => {
-        const add = {title, amount , description, allImages}
+        const add = {title, amount , description, allImages,userId}
        try{
            await addPostToDb(add)
            navigate('/')

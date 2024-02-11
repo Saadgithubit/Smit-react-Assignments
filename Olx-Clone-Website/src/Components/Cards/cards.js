@@ -14,9 +14,7 @@ function Cards() {
 
     async function getData() {
         const data = await getAllDataFromFirebase()
-console.log(data);
         setproducts(data)
-        // fetchdata(data)
 
     }
 
