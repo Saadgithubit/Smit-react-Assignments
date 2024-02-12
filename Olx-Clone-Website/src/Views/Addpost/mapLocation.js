@@ -1,38 +1,22 @@
-import Map, { Marker }from 'react-map-gl';
+import { MapContainer, TileLayer, useMap, Marker,Popup } from 'react-leaflet'
+
  
 // ...
  
 function GoogleMap(){
-  return <Map
-  mapboxAccessToken=""
-  initialViewState={{
-    longitude: 24.908148,
-    latitude: 67.0446932,
-    zoom: 14
-  }}
-  style={{width: 600, height: 400}}
-  mapStyle="mapbox://styles/mapbox/streets-v9"
->
-     <Marker
-                draggable={true}
-                onDragEnd={e => console.log(e)}
-                offsetLeft={-20}
-                offsetTop={-10}
-                longitude={24.908148} latitude={67.0446932} anchor="bottom" >
-                <p
-                        role="img"
-                        className="cursor-pointer text-2xl animate-bounce"
-                        aria-label="pin"
-                      >
-                        📍
-                      </p>
-                      </Marker>
-                      <div>
-            <i class="fa-solid fa-angle-left text-5xl mt-40 hover:text-blue-900 hover:cursor-pointer"></i>
-            <i class="fa-solid fa-angle-right text-5xl mt-40 hover:text-blue-900 hover:cursor-pointer"></i>
-
-                      </div>
-  </Map>
+  const position = [51.505, -0.09]
+  
+  return  <MapContainer style={{border: '1px solid black', height: '100%', display:'flex'}} center={position} zoom={18} scrollWheelZoom={false}>
+  <TileLayer
+    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  />
+    <Marker position={position}>
+    <Popup >
+      A pretty CSS3 popup. <br /> Easily customizable.
+    </Popup>
+  </Marker>
+</MapContainer>
 }
 
 export default GoogleMap
