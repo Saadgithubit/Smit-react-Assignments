@@ -71,7 +71,7 @@ async function getSingleData(id) {
 async function getUserAdds(id) {
 
   const adRef = collection(db, "adds")
-  const querySnapshot = await getDocs(query(adRef, where("id", "==", id)));
+  const querySnapshot = await getDocs(query(adRef, where("userId", "==", id)));
   // console.log(userId);
 
   querySnapshot.forEach((doc) => {
@@ -101,7 +101,7 @@ async function addPostToDb(add) {
       amount: add.amount,
       description: add.description,
       images: add.images,
-      id: add.userId
+      userId: add.userId
     });
     alert('Post Add Successful');
   } catch (error) {
