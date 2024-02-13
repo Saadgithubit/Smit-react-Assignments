@@ -52,6 +52,11 @@
     margin: 20px 30px;
 }
 
+.leaflet-container{
+    width: 100%;
+    height: 400px !important;
+}
+
 @media only screen and (min-width: 426px) and (max-width: 768px){
     .inner-form{
         margin-left: 10px;

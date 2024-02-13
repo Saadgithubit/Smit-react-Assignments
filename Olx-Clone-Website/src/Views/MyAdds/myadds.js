@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-import { getUserAdds } from "../../Config/firebase";
 import { useSelector } from "react-redux";
+
+import { getUserAdds } from "../../Config/firebase";
 import GoogleMap from "../Addpost/mapLocation";
 
 function MyAdds(){

@@ -95,12 +95,12 @@ async function addPostToDb(add) {
 
     add.images = imagesUrls;
 
-    console.log(add.url);
     const docRef = await addDoc(collection(db, "adds"), {
       title: add.title,
       amount: add.amount,
       description: add.description,
       images: add.images,
+      userLocation: add.userLocation,
       userId: add.userId
     });
     alert('Post Add Successful');

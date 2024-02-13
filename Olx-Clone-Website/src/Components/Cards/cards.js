@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import { getAllDataFromFirebase } from '../../Config/firebase';
 
 function Cards() {

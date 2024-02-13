@@ -37,10 +37,10 @@ function Details(){
         <div>
           <div className="w-full my-4 flex">
             <div className="w-2/3 border-2 left">
-                <div className="flex justify-between p-2">
-            <i class="fa-solid fa-angle-left text-5xl mt-44 hover:text-blue-900 hover:cursor-pointer" onClick={increaseIndex}></i>
-                <img className="w-3/4 p-4 h-auto bg-black" src={images[imageIndex]} />
-                <i class="fa-solid fa-angle-right text-5xl mt-44 hover:text-blue-900 hover:cursor-pointer" onClick={decreaseIndex}></i>
+                <div className="flex justify-between align-middle h-96 p-2">
+            <i class="fa-solid fa-angle-left text-5xl mt-40 hover:text-blue-900 hover:cursor-pointer" onClick={increaseIndex}></i>
+                <img className="w-3/4 p-4 h-full bg-black" src={images[imageIndex]} />
+                <i class="fa-solid fa-angle-right text-5xl mt-40 hover:text-blue-900 hover:cursor-pointer" onClick={decreaseIndex}></i>
                 </div>
                  <div className="border-2 p-2">
                 <div className="flex justify-between">
