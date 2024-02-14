@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import { getUserAdds } from "../../Config/firebase";
-import GoogleMap from "../Addpost/mapLocation";
 
 function MyAdds(){
   const userId = useSelector(state => state.userReducer.user.id)
@@ -20,7 +19,7 @@ useEffect(() => {
     return(
 
         <div>
-            <GoogleMap/>
+            <h1>My Adds</h1>
         </div>
     )
 }

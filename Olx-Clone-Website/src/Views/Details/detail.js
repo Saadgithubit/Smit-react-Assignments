@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { getSingleData } from "../../Config/firebase";
 import { useEffect,  useState } from "react";
+import GoogleMap from "../Addpost/mapLocation";
 
 function Details(){
     const { id } = useParams()
@@ -14,6 +15,7 @@ function Details(){
     async function singleData(){
         const data = await getSingleData(id)
         setproduct(data)
+        console.log(data);
     }
     function increaseIndex(){
         setimageIndex(imageIndex + 1)
@@ -28,7 +30,7 @@ function Details(){
         }
 
     }
-    const {title,amount,images,description} = product
+    const {title,amount,images,description,city,userLocation,userId} = product
     if(product == ''){
         return<div>Loading .....</div>
     }
@@ -61,6 +63,12 @@ function Details(){
                 <h3 className="text-center my-2">See Profile <i class="fa-solid fa-greater-than mx-2"></i></h3>
                 <button className="border-2 my-2 w-full p-3 bg-teal-950 text-white font-bold "><i class="fa-solid fa-phone mx-2"></i>Show Phone Number</button>
                 <button className="border-2 border-black w-full p-3 my-2 text-xl"><i class="fa-regular fa-comments mx-3 "></i>Chat</button>
+            <div className="border-2 p-2 w-full">
+                <p className="w-full text-2xl mx-3">Location</p>
+                <h3 className="w-full my-2 "><i class="fa-solid fa-location-dot mx-2"></i> {city}</h3>
+            </div>
+            <p className="w-full my-2">ID: <span>{userId}</span></p>
+            <GoogleMap userLocation={userLocation}/>
             </div>
           </div>
             </div>
