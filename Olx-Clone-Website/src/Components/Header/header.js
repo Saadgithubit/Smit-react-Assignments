@@ -41,13 +41,13 @@ function Header() {
           </button>
           <div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div className="offcanvas-header off">
-              <h5 className="offcanvas-title p-3" id="offcanvasNavbarLabel"></h5>
+              <h5 className="offcanvas-title p-3 text-2xl font-bold" id="offcanvasNavbarLabel">{userName}</h5>
               <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div className="offcanvas-body">
               <form className="d-flex flex-column" role="search">
-                <span className="nav-sell-btn" onClick={() => navigate('/addpost')}><a href="">Start Selling</a></span>
-                <span className="nav-sell-btn"><a href="./src/useradds/useradd.html">My Adds</a></span>
+                <span className="nav-sell-btn" onClick={() => !userDetails ? navigate('/signin') : navigate('/addpost')}><a href="">Start Selling</a></span>
+                <span className="nav-sell-btn" onClick={() => !userDetails ? navigate('/signin') : navigate('/myadds')}><a>My Adds</a></span>
                 {!userDetails ? <span class="nav-sell-btn" onClick={() => navigate('/signin')}><a class="dropdown-item" href="">Log In</a></span>
                   :
                   <span className="nav-sell-btn" onClick={() => logOut(removeUser({}))}><a class="dropdown-item" id="signout" href="">Sign Out</a></span>
@@ -59,7 +59,7 @@ function Header() {
       </nav>
       <div class="header-top">
 
-        <div className="header-img">
+        <div className="header-img my-1">
           <img src="https://logos-world.net/wp-content/uploads/2022/04/OLX-Logo.png" width="30px" height="20px" alt="" />
         </div>
         <div className="header-a">

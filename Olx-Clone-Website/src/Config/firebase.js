@@ -60,7 +60,7 @@ async function getSingleData(id) {
   if (docSnap.exists()) {
     const ad = docSnap.data()
     return ad
-    console.log("Document data:", docSnap.data());
+    // console.log("Document data:", docSnap.data());
   } else {
     // docSnap.data() will be undefined in this case
     console.log("No such document!");
@@ -74,13 +74,13 @@ async function getUserAdds(id) {
   const querySnapshot = await getDocs(query(adRef, where("userId", "==", id)));
   // console.log(userId);
 
+  const adds = []
   querySnapshot.forEach((doc) => {
-    const adds = []
     // console.log(doc.id, " => ", doc.data());
     adds.push({ id: doc.id, ...doc.data() })
-    console.log(adds);
-    return adds
+    // console.log(adds);
   });
+  return adds
 }
 
 async function addPostToDb(add) {
@@ -147,5 +147,5 @@ export {
   getUser,
   onAuthStateChanged,
   logOut,
-  getUserAdds
+  getUserAdds,
 }

@@ -18,8 +18,7 @@ function Addpost() {
     const [img1, setimg1] = useState()
     const [img2, setimg2] = useState()
     const [img3, setimg3] = useState()
-    const [img4, setimg4] = useState()
-    const allImages = [img1, img2]
+    const allImages = [img1, img2, img3]
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((location) => {
@@ -63,7 +62,6 @@ function Addpost() {
                     <input onChange={(e) => setimg1(e.target.files[0])} type="file" name="upload" />
                     <input onChange={(e) => setimg2(e.target.files[0])} type="file" name="upload" />
                     <input onChange={(e) => setimg3(e.target.files[0])} type="file" name="upload" />
-                    <input onChange={(e) => setimg4(e.target.files[0])} type="file" name="upload" />
                 </div>
                 <button onClick={addPost} className='post-btn'>Post</button>
             </div>

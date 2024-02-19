@@ -1,12 +1,7 @@
 .navbar {
     display: none !important;
-    width: 12%;
+    width: 100%;
     height: 50px;
-    position: absolute !important;
-    top: 6px;
-    left: 0;
-
-
 }
 
 .user-img {
@@ -295,7 +290,7 @@ ul>li:hover {
     }
 }
 
-@media only screen and (min-width: 321px) and (max-width: 425px){
+@media only screen and (min-width: 320px) and (max-width: 425px){
     .navbar {
         display: block !important;
     }
@@ -334,7 +329,7 @@ ul>li:hover {
 
     .header-top {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         width: 100%;
         padding-left: 40px;
     }
@@ -376,6 +371,7 @@ ul>li:hover {
 
     .parent-inp {
         width: 100%;
+        padding-left: 20px;
     }
 
     #input {
@@ -391,6 +387,7 @@ ul>li:hover {
     .icon-2 {
         width: 15%;
         height: 60px;
+        margin-left: 10px;
     }
 
     .carousel-inner {
@@ -406,3 +403,14 @@ ul>li:hover {
     }
 
 }
+
+@media only screen and (max-width: 320px){
+    .parent-inp{
+        padding-left: 30px;
+    }
+    .icon-2 {
+        margin-left: 13px;
+    }
+}
+
+

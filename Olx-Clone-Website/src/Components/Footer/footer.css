@@ -45,3 +45,182 @@
 .acc {
     display: none;
 }
+
+@media only screen and (min-width: 426px) and (max-width: 768px){
+    .acc{
+        display: block !important;
+        width: 100% ;
+    }
+    .footer{
+        display: none;
+    }
+ 
+    .accordion-button{
+        font-size: 20px !important;
+        padding-left: 30px !important;
+        height: 100px !important;
+        border-top: 1px solid gray !important;
+        border-bottom: 1px solid gray !important;
+    }
+    .end{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: flex-start
+    }
+    .last-para{
+        font-size: 20px;
+        width: 100% !important;
+        text-align: center;
+        margin-top: 30px;
+        
+    }
+    .follow-us{
+        display: flex;
+        height: 100px;
+        border-top: 1px solid gray;
+        border-bottom: 1px solid gray;
+    }
+    .follow{
+        font-size: 20px !important;
+        margin-left: 20px;
+        margin-top: 40px;
+    }
+    .follow-us> img{
+        width: 50px !important;
+        height: 50px;
+        margin: 20px;
+        position: relative;
+        left: 40px;
+        margin-top: 30px;
+    }
+
+    .last-button{
+        height: 200px;
+        text-align: center;
+    }
+    .last-button>img{
+        width: 200px;
+        height: 150px;
+    }
+
+}
+
+@media only screen and (min-width: 321px) and (max-width: 425px){
+    .footer{
+        display: none;
+    }
+    .acc{
+        display: block;
+        width: 100% ;
+    }
+  
+    .accordion-button{
+        font-size: 20px !important;
+        padding-left: 30px !important;
+        height: 100px !important;
+        border-top: 1px solid gray !important;
+        border-bottom: 1px solid gray !important;
+    }
+    .end{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: flex-start
+    }
+    .last-para{
+        font-size: 20px;
+        width: 100% !important;
+        text-align: center;
+        margin-top: 30px;
+        
+    }
+    .follow-us{
+        display: flex;
+        height: 100px;
+        border-top: 1px solid gray;
+        border-bottom: 1px solid gray;
+    }
+    .follow{
+        font-size: 20px !important;
+        margin-left: 20px;
+        margin-top: 40px;
+    }
+    .follow-us> img{
+        width: 30px !important;
+        height: 40px;
+        margin: 20px;
+        position: relative;
+        left: 10px;
+        margin-top: 30px;
+    }
+  
+    .last-button{
+        height: 200px;
+        text-align: center;
+    }
+    .last-button>img{
+        width: 150px;
+        height: 100px;
+    }
+
+}
+
+@media only screen and (max-width: 320px){
+    .footer{
+        display: none;
+    }
+    .acc{
+        display: block;
+        width: 100% ;
+    }
+  
+    .accordion-button{
+        font-size: 20px !important;
+        padding-left: 30px !important;
+        height: 100px !important;
+        border-top: 1px solid gray !important;
+        border-bottom: 1px solid gray !important;
+    }
+    .end{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: flex-start
+    }
+    .last-para{
+        font-size: 20px;
+        width: 100% !important;
+        text-align: center;
+        margin-top: 30px;
+        
+    }
+    .follow-us{
+        display: flex;
+        height: 100px;
+        border-top: 1px solid gray;
+        border-bottom: 1px solid gray;
+    }
+    .follow{
+        font-size: 20px !important;
+        margin-left: 20px;
+        margin-top: 30px;
+    }
+    .follow-us> img{
+        width: 25px !important;
+        height: 30px;
+        margin: 10px;
+        position: relative;
+        left: 0;
+        margin-top: 30px;
+    }
+  
+    .last-button{
+        height: 200px;
+        text-align: center;
+    }
+    .last-button>img{
+        width: 150px;
+        height: 100px;
+    }
+}

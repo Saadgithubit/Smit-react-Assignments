@@ -35,3 +35,23 @@ p {
     font-weight: bold;
     width: 100px;
 }
+
+@media only screen and (max-width: 768px){
+    .items{
+       
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-y: scroll;
+        padding: 0;
+
+     }
+     .same{
+        height: 200px;
+        margin-left: 30px;
+     }
+     .same > img , p{
+        font-size: 15px;
+        width: 50px !important;
+        height: 50px !important;
+     }
+}
