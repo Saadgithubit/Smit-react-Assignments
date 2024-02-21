@@ -1,7 +1,8 @@
-import './sign.css'
+import './signin.css'
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import { logIn } from '../../Config/firebase';
+import olxImage from '../../Images/Capture 2.PNG'
 
 function Signin(){
     const navigate = useNavigate()
@@ -20,17 +21,17 @@ function Signin(){
     }
 
     return(
-        <div>
+        <div className='w-screen h-screen flex justify-center items-center'>
              <fieldset>
-        <div class="signin-div">
-            <h1>Sign In Page</h1>
+        <div className="signin-div">
+            <img src={olxImage}/>
         </div>
         <h5>Email</h5>
-        <input type="email" onChange={(e)=>setemail(e.target.value)} placeholder="Enter Your Email" class="signin-inp" required="required" id="logInEmail"/><br/><br/>
+        <input type="email" onChange={(e)=>setemail(e.target.value)} placeholder="Enter Your Email" className="signin-inp" required="required" id="logInEmail"/><br/><br/>
         <h5>Password</h5>
-        <input type="password" onChange={(e)=>setpassword(e.target.value)} placeholder="Enter Your Password" class="signin-inp" required="required"id="logInPassword"/><br/><br/>
-        <button class="signin-btn" onClick={signIn}>Sign In</button><br/><br/>
-        <p class="link">Don't have an account <span onClick={()=>navigate('/signup')}>Sign Up </span></p>
+        <input type="password" onChange={(e)=>setpassword(e.target.value)} placeholder="Enter Your Password" className="signin-inp" required="required"id="logInPassword"/><br/><br/>
+        <button className="signin-btn" onClick={signIn}>Sign In</button><br/><br/>
+        <p className="link">Don't have an account <span onClick={()=>navigate('/signup')}>Sign Up </span></p>
     </fieldset>
         </div>
     )

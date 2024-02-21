@@ -1,6 +1,8 @@
+import './signup.css'
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { register } from "../../Config/firebase";
+import olxImage from '../../Images/Capture 2.PNG'
 
 function Signup(){
     const navigate = useNavigate()
@@ -19,10 +21,10 @@ function Signup(){
     }
 
     return(
-        <div>
-              <fieldset>
+        <div className='flex justify-center'>
+              <fieldset className='fieldset'>
         <div class="signup-div">
-            <h1>Sign Up Page</h1>
+        <img src={olxImage}/>
         </div>
     <h5>Full Name</h5>
     <input type="text" onChange={(e)=>{setfullName(e.target.value)}} placeholder="Enter Your Full Name" class="signup-inp" required="required" id="name"/><br/><br/>

@@ -11,6 +11,8 @@ import Addpost from "../Views/Addpost/addpost";
 import Header from "../Components/Header/header";
 import Footer from "../Components/Footer/footer";
 import MyAdds from "../Views/MyAdds/myadds";
+import { getAllDataFromFirebase } from "./firebase";
+import { useState , useEffect } from "react";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +50,25 @@ const router = createBrowserRouter([
 ]);
 
 function Layout() {
+  const [products , setproducts] = useState([])
+
+  useEffect(() => {
+    getData()
+}, [])
+
+
+async function getData() {
+    const data = await getAllDataFromFirebase()
+    setproducts(data)
+
+}
+
+if (!products.length) {
+    return <div className='w-screen h-screen flex justify-center items-center'>
+        <img src="https://cdn.dribbble.com/users/2973561/screenshots/5757826/loading__.gif"
+            width="30%" alt="" />
+    </div>
+}
   return <div>
     <Header />
     <Outlet/>
