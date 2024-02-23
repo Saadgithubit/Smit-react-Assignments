@@ -44,7 +44,7 @@ function PostAdd() {
                 return <div className="hero">
 
                     <span>
-                        <img src='https://scontent.fkhi26-1.fna.fbcdn.net/v/t39.30808-6/350122727_651795906811177_8261425612303589357_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeFCAfKtWf_okSf9b_TyVUTxg9RPnp4t1DWD1E-eni3UNZw5KugdxNVVtApcn0pRD7HYH6p1puWjN4bM2bapPDXo&_nc_ohc=YhggrS9XmJ4AX8v64N_&_nc_ht=scontent.fkhi26-1.fna&oh=00_AfCKm0UCfxnwF0YRp9RyQgA_bjSaV9EBL0W-lcelH3ZDMg&oe=659AC1F6' />
+                        <img src='https://scontent-mct1-1.xx.fbcdn.net/v/t39.30808-6/350122727_651795906811177_8261425612303589357_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeFCAfKtWf_okSf9b_TyVUTxg9RPnp4t1DWD1E-eni3UNZw5KugdxNVVtApcn0pRD7HYH6p1puWjN4bM2bapPDXo&_nc_ohc=gtVSAjGP-SsAX9sG9Jq&_nc_ht=scontent-mct1-1.xx&oh=00_AfA-laBmkDyoAYBs6v1JMNuuKGicRoJCAkNOgeypDCe6gw&oe=65AA93F6' alt='img' />
                         <h1>{item.title}</h1>
                     </span>
                     <div className='inner'>
