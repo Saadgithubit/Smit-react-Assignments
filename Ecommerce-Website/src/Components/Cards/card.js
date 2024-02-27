@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 function Cards() {
 
     const navigate = useNavigate()
@@ -9,10 +10,16 @@ function Cards() {
         getData()
     }, [])
 
+
+
     function getData() {
         fetch('https://dummyjson.com/products')
             .then(res => res.json())
             .then(res => setproducts(res.products))
+        
+    }
+
+    function clickProduct(){
         
     }
 

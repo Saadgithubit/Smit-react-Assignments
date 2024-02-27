@@ -1,4 +1,7 @@
+import { useSelector } from "react-redux";
 function Navbar(){
+    const totalCartProducts = useSelector(state => state.cartReducer.cart.length)
+    console.log('cart --> ',totalCartProducts);
     return (
         <nav className="bg-white border-2 px-3 py-6 flex justify-around">
             <div className="flex space-x-2 text-3xl py-2">
@@ -12,9 +15,12 @@ function Navbar(){
                 <li className="mx-6 hover:text-blue-600 hover:cursor-pointer">Blogs</li>
                 <li className="mx-6 hover:text-blue-600 hover:cursor-pointer">Pages</li>
                 <li className="mx-6 hover:text-blue-600 hover:cursor-pointer">Contact</li>
-                <li className='space-x-7 mx-20'>
+                <li className='flex space-x-7 mx-20'>
                 <i class="fa-solid fa-magnifying-glass hover:text-blue-600 hover:cursor-pointer"></i>
+                <span className="flex space-x-2">
                 <i class="fa-solid fa-cart-shopping hover:text-blue-600 hover:cursor-pointer"></i>
+                <p>{totalCartProducts}</p>
+                </span>
                 </li>
             </ul>
             <button className='border-2 px-3 py-3 rounded-3xl font-bold w-40 hover:bg-blue-400 hover:text-white'>Buy Now</button>

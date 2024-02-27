@@ -1,11 +1,14 @@
 import './details.css';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Navbar from '../Navbar/navbar'
 import Footer from '../Footer/footer';
+import { setcart } from '../../Store/cartSlice';
 
 
 function Details() {
+    const dispatch = useDispatch()
     const { adId } = useParams()
     const [imageIndex, setimageIndex] = useState(0)
     const [product, setproduct] = useState('')
@@ -19,26 +22,22 @@ function Details() {
         fetch('https://dummyjson.com/products/' + adId)
             .then(res => res.json())
             .then(res => setproduct(res))
-        
+
     }
 
-    function increaseIndex(){
+    function increaseIndex() {
         setimageIndex(imageIndex + 1)
-        if(imageIndex === product.images.length -1){
+        if (imageIndex === product.images.length - 1) {
             setimageIndex(0)
         }
-        console.log(imageIndex);
     }
-    function decreaseIndex(){
+    function decreaseIndex() {
         setimageIndex(imageIndex - 1)
-        if(imageIndex === 0){
-            setimageIndex(product.images.length -1)
+        if (imageIndex === 0) {
+            setimageIndex(product.images.length - 1)
         }
-        console.log(imageIndex);
 
     }
-
-    console.log(imageIndex);
 
     if (product === '') {
         return <div>Loading ....</div>
@@ -63,11 +62,12 @@ function Details() {
                     <h3 className='mt-6 mx-4 text-sm'>Rating <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </h3>
                     <h5 className='mt-2 font-light'><i class="fa-solid fa-check mr-2"></i>Return & Change Excepted</h5>
+                    <button onClick={() => dispatch(setcart(product))} className='px-12 py-4 w-full text-xl my-4 bg-blue-900 text-white rounded cursor-pointer'>Add To Cart</button>
                 </div>
 
             </div>
-           
-          <Footer/>
+
+            <Footer />
         </div>
     )
 }
