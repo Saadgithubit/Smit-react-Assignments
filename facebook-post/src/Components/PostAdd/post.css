@@ -142,7 +142,7 @@
 }
 @media screen and (max-width: 425px) {
     .hero{
-        width: 90%;
+        width: 100%;
     }
     .reactIcons .fa-thumbs-up{
         font-size: 20px;

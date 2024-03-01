@@ -1,4 +1,8 @@
-
+.post-div h1{
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
 
 #upload-files{
     display: none;
@@ -18,9 +22,14 @@
     margin: 20px;
     padding: 20px;
 }
+.inner-form p{
+    width: 100% !important;
+    height: 20px !important;
+    margin: 20px 0;
 
+}
 .inner-form input{
-    width: 80%;
+    width: 80% !important;
     height: 50px;
     font-size: 18px;
     border:  1px solid black;
@@ -47,6 +56,7 @@
     width: 130px;
     height: 50px;
     border-radius: 10px;
+    text-align: center !important;
     color: white;
     background-color: rgb(34, 40, 151);
     margin: 20px 30px;
@@ -61,6 +71,9 @@
     .inner-form{
         margin-left: 10px;
     }
+    .inner-form input{
+        width: 100% !important;
+    }
     .img-div{
         width: 40%;
     }
@@ -70,7 +83,11 @@
     .form{
         width: 100%;
     }
+    .inner-form input{
+        width: 100% !important;
+    }
     .inner-form{
+        width: 100%;
         border: none;
         margin: 0;
     }

@@ -136,3 +136,37 @@
 
 
 }
+
+@media screen and (max-width: 320px) {
+
+    /* .navbar{
+        border: 1px solid black;
+    } */
+    .input {
+        width: 90% !important;
+    }
+
+    .input input {
+        margin: 8px 10px 0 0;
+        width: 85%;
+    }
+
+    .center {
+        display: none;
+    }
+
+    .left {
+        width: 70%;
+    }
+
+    .right {
+        width: 30%;
+    }
+
+    .right i{
+    width: 30%;
+    }
+
+
+
+}

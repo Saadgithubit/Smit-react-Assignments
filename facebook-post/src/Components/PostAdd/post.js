@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import FbImageLibrary from 'react-fb-image-grid';
+import profileImage from '../../Images/profile.jpg'
 import './post.css'
 
 
@@ -44,7 +45,7 @@ function PostAdd() {
                 return <div className="hero">
 
                     <span>
-                        <img src='https://scontent-mct1-1.xx.fbcdn.net/v/t39.30808-6/350122727_651795906811177_8261425612303589357_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeFCAfKtWf_okSf9b_TyVUTxg9RPnp4t1DWD1E-eni3UNZw5KugdxNVVtApcn0pRD7HYH6p1puWjN4bM2bapPDXo&_nc_ohc=gtVSAjGP-SsAX9sG9Jq&_nc_ht=scontent-mct1-1.xx&oh=00_AfA-laBmkDyoAYBs6v1JMNuuKGicRoJCAkNOgeypDCe6gw&oe=65AA93F6' alt='img' />
+                        <img src={profileImage} alt='img' />
                         <h1>{item.title}</h1>
                     </span>
                     <div className='inner'>

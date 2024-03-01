@@ -3,6 +3,9 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { getFirestore, collection, getDocs, doc, where, query, addDoc, getDoc, setDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL, } from "firebase/storage";
+import Swal from 'sweetalert2'
+
+// or via CommonJS
 
 const firebaseConfig = {
   apiKey: "AIzaSyD0CbzxPtsrdDpY7Gfx5BSV0FRi1rmPxkY",
@@ -28,8 +31,11 @@ async function register(userDetails) {
 
   const userRef = doc(db, 'users', uid);
   await setDoc(userRef, { fullName, email, contact, password });
-
-  alert('Register Successfull')
+  Swal.fire({
+    title: "Good job!",
+    text: "Register Successfull!",
+    icon: "success"
+  });
 
 }
 
@@ -38,7 +44,11 @@ async function logIn(userDetails) {
 
   await signInWithEmailAndPassword(auth, email, password)
 
-  alert('Log In Successfull')
+  Swal.fire({
+    title: "Good job!",
+    text: "Sign In Successfull!",
+    icon: "success"
+  });
 
 }
 async function getAllDataFromFirebase() {
@@ -94,6 +104,7 @@ async function addPostToDb(add) {
     }));
 
     add.images = imagesUrls;
+    console.log(imagesUrls);
 
     const docRef = await addDoc(collection(db, "adds"), {
       title: add.title,
@@ -101,11 +112,20 @@ async function addPostToDb(add) {
       description: add.description,
       images: add.images,
       userLocation: add.userLocation,
+      userlocationName: add.userLocationName,
       userId: add.userId
     });
-    alert('Post Add Successful');
+    Swal.fire({
+      title: "Good job!",
+      text: "Post Add Successfull!",
+      icon: "success"
+    });
   } catch (error) {
-    console.error('Error saving images URL', error.message);
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: error.message,
+    });
   }
 }
 
@@ -128,7 +148,11 @@ async function getUser(uid) {
 function logOut() {
   signOut(auth)
     .then(() => {
-      alert('Sign-out successful')
+      Swal.fire({
+        title: "Good job!",
+        text: "Sign-out successfull!",
+        icon: "success"
+      });
       // Sign-out successful.
     }).catch((error) => {
       alert(error)

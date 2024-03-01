@@ -117,14 +117,15 @@ function Quiz(){
         <div>Loading....</div>;
       }
       return (
-        
-        <div className="App" style={{color: fontcolor}}>
-            <h1>Quiz App</h1>
+        <div className="main">
           <div className="theme">
             <h3 className="theme-font">FontColor</h3>
             <div className="black-box" onClick={()=> dispatch(updateColor('black'))}></div>
             <div className="white-box" onClick={()=> dispatch(updateColor('white'))}></div>
           </div>
+        <div className="App" style={{color: fontcolor}}>
+            <h1>Quiz App</h1>
+          
           <div className="App-header">
          {isLastQuestion ?<div className="counting-ques">
           <span className="span">Total Questions {question.length}/{currentIndex === 0 ? question.length:question.length-1}</span>
@@ -161,6 +162,7 @@ function Quiz(){
               </div>
             )}
           </div>
+        </div>
         </div>
       )
     }

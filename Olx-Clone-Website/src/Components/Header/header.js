@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux';
+import Swal from 'sweetalert2'
 
 import './header.css'
 import Capture from '../../Images/Capture 2.PNG'
@@ -12,6 +13,7 @@ function Header() {
   const [userName, setUserName] = useState('User')
   const [userDetails, setuserDetails] = useState(false)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const activeUser = useSelector(state => state.userReducer.user.fullName)
 
   onAuthStateChanged(auth, async (user) => {
@@ -27,8 +29,25 @@ function Header() {
       setuserDetails(false)
     }
   });
-  const navigate = useNavigate()
 
+  const goToSell = () => {
+    if(userName == "User"){
+      Swal.fire({
+        title: "Please Sign In First",
+        text: "User Not Found!",
+        icon: "question"
+      });
+      navigate('/signin')
+    }else{
+
+      navigate('/addpost')
+    }
+  }
+
+  const signOut = () => {
+    logOut()
+    dispatch(removeUser({}))
+  }
 
   return (
 
@@ -50,7 +69,7 @@ function Header() {
                 <span className="nav-sell-btn" onClick={() => !userDetails ? navigate('/signin') : navigate('/myadds')}><a>My Adds</a></span>
                 {!userDetails ? <span class="nav-sell-btn" onClick={() => navigate('/signin')}><a class="dropdown-item" href="">Log In</a></span>
                   :
-                  <span className="nav-sell-btn" onClick={() => logOut(removeUser({}))}><a class="dropdown-item" id="signout" href="">Sign Out</a></span>
+                  <span className="nav-sell-btn" onClick={signOut}><a class="dropdown-item" id="signout" href="">Sign Out</a></span>
                 }
               </form>
             </div>
@@ -107,14 +126,14 @@ function Header() {
                   <button className='border p-2 w-full my-2'>view and edit your profile</button>
                 </div>
                 <li onClick={() => navigate('myadds')}><a class="dropdown-item">My Adds</a></li>
-                <li onClick={logOut}><a class="dropdown-item" id="signout" href="">Sign Out</a></li>
+                <li onClick={signOut}><a class="dropdown-item" id="signout" href="">Sign Out</a></li>
               </ul>
             </div>
           }
 
 
 
-          <button className="sell" onClick={() => navigate('/addpost')}> <b> +Sell </b></button>
+          <button className="sell" onClick={goToSell}> <b> +Sell </b></button>
         </div>
       </div>
 

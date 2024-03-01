@@ -1,3 +1,11 @@
+.weather-container{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .weather-div{
     background-image: url('https://ubuntuhandbook.org/wp-content/uploads/2021/07/M-Maggs-pixabay.jpg');
     background-repeat: no-repeat;
@@ -77,4 +85,19 @@
 .history-btn:hover , .search-btn:hover{
 
     background-color: #31093D;
+}
+
+@media only screen and (max-width: 425px){
+    .heading{
+        font-size: 40px;
+    }
+    .input-div{
+        flex-direction: column;
+    }
+    .weather-div input{
+        width: 100%;
+    }
+    .search-btn{
+        width: 100%;
+    }
 }
