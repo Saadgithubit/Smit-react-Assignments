@@ -59,9 +59,9 @@ function Header() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div className="offcanvas-header off">
-              <h5 className="offcanvas-title p-3 text-2xl font-bold" id="offcanvasNavbarLabel">{userName}</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <div className="offcanvas-header off" >
+              <h5 className="offcanvas-title p-3 pb-2 text-2xl font-bold" id="offcanvasNavbarLabel">{userName}</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><span><i class="fa-solid fa-x text-2xl"></i></span></button>
             </div>
             <div className="offcanvas-body">
               <form className="d-flex flex-column" role="search">
@@ -76,6 +76,7 @@ function Header() {
           </div>
         </div>
       </nav>
+
       <div class="header-top">
 
         <div className="header-img my-1">

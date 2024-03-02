@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
-import { getFirestore, collection, getDocs, doc, where, query, addDoc, getDoc, setDoc } from "firebase/firestore";
+import { getFirestore, collection, getDocs, doc, where, query, addDoc, getDoc, setDoc , deleteDoc} from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL, } from "firebase/storage";
 import Swal from 'sweetalert2'
 
@@ -93,6 +93,11 @@ async function getUserAdds(id) {
   return adds
 }
 
+async function deleteSingleAdd(id){
+  await deleteDoc(doc(db, "adds", id))
+
+}
+
 async function addPostToDb(add) {
   const imagesUrls = [];
   try {
@@ -172,4 +177,5 @@ export {
   onAuthStateChanged,
   logOut,
   getUserAdds,
+  deleteSingleAdd
 }
