@@ -9,10 +9,10 @@
 .signin-div{
     text-align: center;
     font-size: 30px;
+    padding-bottom: 20px;
 }
 
 fieldset{
-    border: 1px solid black;
     border-radius: 20px;
     background-color: #f7f8f8;
     width: 30%;
@@ -31,14 +31,21 @@ fieldset h5{
     font-size: 20px;
 }
 .signin-inp{
+    position: relative;
+    bottom: 30px;
+    background: transparent;
     width: 100%;
     height: 40px;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     margin-top: 5px;
-    padding-left: 10px;
+    padding: 20px 0 0 10px;
     font-size: 15px;
 }
-
+.signin-inp:focus{
+    position: relative;
+    bottom: 0;
+    padding: 10px;
+}
 .signin-btn{
     width: 100%;
     height: 50px;

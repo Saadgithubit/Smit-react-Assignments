@@ -18,7 +18,7 @@ function Details(){
     }
     function increaseIndex(){
         setimageIndex(imageIndex + 1)
-        if(imageIndex === product.images.length -1){
+        if(imageIndex === product.images.length){
             setimageIndex(0)
         }
     }

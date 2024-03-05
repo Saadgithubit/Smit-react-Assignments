@@ -3,6 +3,9 @@ import {
   RouterProvider,
   Outlet,
 } from "react-router-dom";
+import { getAllDataFromFirebase } from "./firebase";
+import { useState , useEffect } from "react";
+
 import Dashboard from "../Views/Dashboard/dashboard";
 import Signin from "../Views/Signin/signin";
 import Signup from "../Views/Signup/signup";
@@ -11,8 +14,7 @@ import Addpost from "../Views/Addpost/addpost";
 import Header from "../Components/Header/header";
 import Footer from "../Components/Footer/footer";
 import MyAdds from "../Views/MyAdds/myadds";
-import { getAllDataFromFirebase } from "./firebase";
-import { useState , useEffect } from "react";
+import EditAdd from "../Components/EditAdd/editadd";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/myadds",
         element: <MyAdds />,
+      },
+      {
+        path: "/editadd/:id",
+        element: <EditAdd />,
       },
     ]
   },

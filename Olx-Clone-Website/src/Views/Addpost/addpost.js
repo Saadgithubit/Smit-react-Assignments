@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import Swal from 'sweetalert2'
 
 import './addpost.css'
 import { addPostToDb } from '../../Config/firebase'
@@ -19,9 +20,26 @@ function Addpost() {
     const [amount, setamount] = useState()
     const [description, setdescription] = useState()
     const [img1, setimg1] = useState()
+    const [imgurl1,setimgurl1] = useState()
     const [img2, setimg2] = useState()
+    const [imgurl2,setimgurl2] = useState()
     const [img3, setimg3] = useState()
+    const [imgurl3,setimgurl3] = useState()
     const allImages = [img1, img2, img3]
+
+const firstImg = (e) => {
+    setimg1(e.target.files[0])
+    setimgurl1(URL.createObjectURL(e.target.files[0]))
+}       
+
+const secondImg = (e) => {
+    setimg2(e.target.files[0])
+    setimgurl2(URL.createObjectURL(e.target.files[0]))
+}       
+const thirdImg = (e) => {
+    setimg3(e.target.files[0])
+    setimgurl3(URL.createObjectURL(e.target.files[0]))
+}       
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((location) => {
@@ -39,7 +57,11 @@ function Addpost() {
         const add = {title,amount,description,allImages,userLocation,userId,userLocationName}
         try {
             if(!title || !amount || !description || !userLocationName){
-                alert('Please Fill All Fields')
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Please Fill All Fields",
+                  });
                 setclickBtn(false)
                 return
             }
@@ -63,7 +85,7 @@ function Addpost() {
                     <p>Add Title</p>
                     <input onChange={(e) => settitle(e.target.value)} placeholder='Enter Title' type="text" name="" id="title" />
                     <p>Add Description</p>
-                    <input onChange={(e) => setdescription(e.target.value)} placeholder='Enter Description' type="text" name="" id="description" />
+                    <textarea onChange={(e) => setdescription(e.target.value)} placeholder='Enter Description' type="text" name="" id="description" />
                     <p>Set A Price</p>
                     <input onChange={(e) => setamount(e.target.value)} placeholder='Enter Price' type="text" name="" id="price" />
                     <p>Add Location</p>
@@ -72,10 +94,20 @@ function Addpost() {
                     {locator && <GoogleMap userLocation={userLocation} />}
 
                 </div>
+                
                 <div class="img-div">
-                    <input onChange={(e) => setimg1(e.target.files[0])} type="file" name="upload" />
-                    <input onChange={(e) => setimg2(e.target.files[0])} type="file" name="upload" />
-                    <input onChange={(e) => setimg3(e.target.files[0])} type="file" name="upload" />
+                    <div>
+                   {imgurl1 && <img width='150' src={imgurl1}/>} 
+                    <input onChange={(e) => firstImg(e)} type="file" name="upload" />
+                    </div>
+                    <div>
+                   {imgurl2 && <img width='150' src={imgurl2}/>} 
+                    <input onChange={(e) => secondImg(e)} type="file" name="upload" />
+                    </div>
+                    <div>
+                   {imgurl3 && <img width='150' src={imgurl3}/>} 
+                    <input onChange={(e) => thirdImg(e)} type="file" name="upload" />
+                    </div>
                 </div>
                 {!clickBtn ? <button onClick={addPost} className='post-btn'>Post</button>:
                 <button className='post-btn'><img className='w-7 m-auto' src='https://i.gifer.com/ZZ5H.gif'/></button>}

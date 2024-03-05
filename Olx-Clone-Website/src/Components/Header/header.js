@@ -65,6 +65,7 @@ function Header() {
             </div>
             <div className="offcanvas-body">
               <form className="d-flex flex-column" role="search">
+              <span className="nav-sell-btn" onClick={() => navigate('/')}><a href="">Home</a></span>
                 <span className="nav-sell-btn" onClick={() => !userDetails ? navigate('/signin') : navigate('/addpost')}><a href="">Start Selling</a></span>
                 <span className="nav-sell-btn" onClick={() => !userDetails ? navigate('/signin') : navigate('/myadds')}><a>My Adds</a></span>
                 {!userDetails ? <span class="nav-sell-btn" onClick={() => navigate('/signin')}><a class="dropdown-item" href="">Log In</a></span>
@@ -126,6 +127,7 @@ function Header() {
                   </span>
                   <button className='border p-2 w-full my-2'>view and edit your profile</button>
                 </div>
+                <li onClick={() => navigate('/')}><a class="dropdown-item">Home</a></li>
                 <li onClick={() => navigate('myadds')}><a class="dropdown-item">My Adds</a></li>
                 <li onClick={signOut}><a class="dropdown-item" id="signout" href="">Sign Out</a></li>
               </ul>

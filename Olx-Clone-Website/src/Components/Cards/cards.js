@@ -53,7 +53,7 @@ function Cards() {
                 {products.map(function (item , index) {
                     return (
                         <div className='border-2 w-72 pb-4 mx-2 my-6 shadow-lg' onClick={() => cardClick(item)}>
-                            <img src={item.images[1]} className='w-full h-48 border-y-2 p-1' />
+                            <img src={item.images[0]} className='w-full h-48 border-y-2 p-1' />
                             <div className='px-6'>
                                 <div className='flex justify-between py-2'>
                                     <h3 className='mt-2 font-bold'>Rs {item.amount}</h3>
