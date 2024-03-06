@@ -1,6 +1,7 @@
 import './signin.css'
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
+import { TextField } from '@mui/material';
 import Swal from 'sweetalert2'
 
 import { logIn } from '../../Config/firebase';
@@ -43,6 +44,8 @@ function Signin() {
                 </div>
                 <h5>Email</h5>
                 <input type="email" onChange={(e) => setemail(e.target.value)} className="signin-inp" required="required" id="logInEmail" /><br /><br />
+                {/* <TextField id="full-width" label="Filled" variant="filled" /> */}
+
                 <h5>Password</h5>
                 <input type="password" onChange={(e) => setpassword(e.target.value)} className="signin-inp" required="required" id="logInPassword" /><br /><br />
                 {!clickBtn ? <button className="signin-btn" onClick={signIn}>Sign In</button> :
