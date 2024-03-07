@@ -65,7 +65,7 @@ function Header() {
             </div>
             <div className="offcanvas-body">
               <form className="d-flex flex-column" role="search">
-              <span className="nav-sell-btn" onClick={() => navigate('/')}><a href="">Home</a></span>
+              {userDetails && <span className="nav-sell-btn" onClick={() => navigate('/')}><a href="">Home</a></span>}
                 <span className="nav-sell-btn" onClick={() => !userDetails ? navigate('/signin') : navigate('/addpost')}><a href="">Start Selling</a></span>
                 <span className="nav-sell-btn" onClick={() => !userDetails ? navigate('/signin') : navigate('/myadds')}><a>My Adds</a></span>
                 {!userDetails ? <span class="nav-sell-btn" onClick={() => navigate('/signin')}><a class="dropdown-item" href="">Log In</a></span>

@@ -1,7 +1,8 @@
 import './signup.css'
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Swal from 'sweetalert2'
+import { TextField } from '@mui/material';
 
 import { register } from "../../Config/firebase";
 import olxImage from '../../Images/Capture 2.PNG'
@@ -55,25 +56,107 @@ function Signup() {
     }
   }
 
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            signUp();
+        }
+    };
+
+    window.addEventListener('keypress', handleKeyPress);
+
+    return () => {
+        window.removeEventListener('keypress', handleKeyPress);
+    };
+}, [signUp]);
+
   return (
     <div className='flex justify-center'>
       <fieldset className='fieldset'>
         <div class="signup-div">
           <img src={olxImage} />
         </div>
-        <h5>Full Name</h5>
-        <input type="text" onChange={(e) => { setfullName(e.target.value) }} placeholder="Enter Your Full Name" class="signup-inp" required="required" id="name" /><br /><br />
-        <h5>Father Name</h5>
-        <input type="text" placeholder="Enter Your Father Name" class="signup-inp" required="required" id="fathername" /><br /><br />
-        <h5>Email</h5>
-        <input type="email" onChange={(e) => { setemail(e.target.value) }} placeholder="Enter Your Email" class="signup-inp" required="required" id="email" /><br /><br />
-        <h5>Contact Number</h5>
-        <input type="number" onChange={(e) => { setcontact(e.target.value) }} placeholder="Enter Contact Number" class="signup-inp" required="required" id="contact" />
-        <h5>Password</h5>
-        <input type="password" onChange={(e) => { setpassword(e.target.value) }} placeholder="Enter Your Password" class="signup-inp" required="required" id="password" /><br /><br />
-        <h5>Confirm Password</h5>
-        <input type="password" onChange={(e) => { setconfirmPassword(e.target.value) }} placeholder="Confirm Your Password" class="signup-inp" required="required" id="con-password" /><br /><br />
+        <TextField
+          onChange={(e) => setfullName(e.target.value)}
+          sx={{
+            width: '100%',
+            height: '40px',
+            background: 'transparent',
+            marginTop: '10px',
+            marginBottom: '40px',
 
+          }}
+          id="full-width"
+          type='text'
+          label="Name"
+          variant="filled" />
+          <TextField
+          onChange={(e) => setfullName(e.target.value)}
+          sx={{
+            width: '100%',
+            height: '40px',
+            background: 'transparent',
+            marginTop: '5px',
+            marginBottom: '40px',
+
+          }}
+          id="full-width"
+          type='text'
+          label="FatherName"
+          variant="filled" />
+          <TextField
+          onChange={(e) => setemail(e.target.value)}
+          sx={{
+            width: '100%',
+            height: '40px',
+            background: 'transparent',
+            marginTop: '5px',
+            marginBottom: '40px',
+
+          }}
+          id="full-width"
+          type='email'
+          label="Email"
+          variant="filled" />
+          <TextField
+          onChange={(e) => setcontact(e.target.value)}
+          sx={{
+            width: '100%',
+            height: '40px',
+            background: 'transparent',
+            marginTop: '5px',
+            marginBottom: '40px',
+          }}
+          id="full-width"
+          type='text'
+          label="Contact"
+          variant="filled" />
+          <TextField
+          onChange={(e) => setpassword(e.target.value)}
+          sx={{
+            width: '100%',
+            height: '40px',
+            background: 'transparent',
+            marginTop: '5px',
+            marginBottom: '40px',
+          }}
+          id="full-width"
+          type='password'
+          label="Password"
+          variant="filled" />
+          <TextField
+          onChange={(e) => setconfirmPassword(e.target.value)}
+          sx={{
+            width: '100%',
+            height: '40px',
+            background: 'transparent',
+            marginTop: '5px',
+            marginBottom: '40px',
+          }}
+          id="full-width"
+          type='password'
+          label="Confirm Password"
+          variant="filled" />
         {!clickBtn ? <button class="signup-btn" onClick={signUp}>Sign Up</button> :
           <button className="signup-btn"><img className='w-7 m-auto' src='https://i.gifer.com/ZZ5H.gif' /></button>}
 

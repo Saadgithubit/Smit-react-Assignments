@@ -159,8 +159,8 @@ async function getUser(uid) {
 }
 
 
-function logOut() {
-  signOut(auth)
+async function logOut() {
+  await signOut(auth)
     .then(() => {
       Swal.fire({
         title: "Good job!",

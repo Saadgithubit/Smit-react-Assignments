@@ -1,11 +1,13 @@
 import './signin.css'
 import { useNavigate } from 'react-router-dom';
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { TextField } from '@mui/material';
 import Swal from 'sweetalert2'
 
 import { logIn } from '../../Config/firebase';
 import olxImage from '../../Images/Capture 2.PNG'
+
+
 
 function Signin() {
     const navigate = useNavigate()
@@ -34,6 +36,19 @@ function Signin() {
 
     }
 
+    useEffect(() => {
+        const handleKeyPress = (e) => {
+            if (e.key === 'Enter') {
+                signIn();
+            }
+        };
+
+        window.addEventListener('keypress', handleKeyPress);
+
+        return () => {
+            window.removeEventListener('keypress', handleKeyPress);
+        };
+    }, [signIn]);
     return (
         <div className='w-screen h-screen flex flex-col justify-center items-center'>
             <h5 className='text-md'>Email: tester@gmail.com</h5>
@@ -42,12 +57,34 @@ function Signin() {
                 <div className="signin-div">
                     <img src={olxImage} />
                 </div>
-                <h5>Email</h5>
-                <input type="email" onChange={(e) => setemail(e.target.value)} className="signin-inp" required="required" id="logInEmail" /><br /><br />
-                {/* <TextField id="full-width" label="Filled" variant="filled" /> */}
+                <TextField
+                    onChange={(e) => setemail(e.target.value)}
+                    sx={{
+                        width: '100%',
+                        height: '40px',
+                        background: 'transparent',
+                        marginTop: '5px',
 
-                <h5>Password</h5>
-                <input type="password" onChange={(e) => setpassword(e.target.value)} className="signin-inp" required="required" id="logInPassword" /><br /><br />
+                    }}
+                    id="full-width"
+                    type='text'
+                    label="Email"
+                    variant="filled" />
+
+                <TextField
+                    onChange={(e) => setpassword(e.target.value)}
+                    sx={{
+                        width: '100%',
+                        height: '40px',
+                        background: 'transparent',
+                        marginTop: '45px',
+                        marginBottom: '40px',
+                        bgcolor: '#f7f8f8'
+                    }}
+                    id="full-width"
+                    label="Password"
+                    type='password'
+                    variant="filled" />
                 {!clickBtn ? <button className="signin-btn" onClick={signIn}>Sign In</button> :
                     <button className="signin-btn"><img className='w-7 m-auto' src='https://i.gifer.com/ZZ5H.gif' /></button>}
                 <br /><br />
