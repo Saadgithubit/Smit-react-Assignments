@@ -14,23 +14,26 @@ function Weather() {
         if (buttonClicked) {
             fetchWeatherApi() 
         }
-        if(!city){
-            alert('Search City')
-        }
+        // if(!city){
+        //     alert('Search City')
+        // }
     }, [buttonClicked])
 
-    useEffect(() => {
-        console.log('city --> ',city);
-      }, [city]);
+    // useEffect(() => {
+    //     console.log('city --> ',city);
+    //   }, [city]);
       
-
+const cityData = (e) => {
+    setcity(e.target.value)
+}
     const fetchWeatherApi = async () => {
         try {
             const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=4ebb9418ca605fa1931880e565ec065c`)
             const weatherData = await response.json()
             setweather(weatherData)
-
             setcity('')
+
+            
             sethistory((prevHistory) => [...prevHistory, { Name: weatherData.name, Temp: weatherData.main.temp }])
         } catch (error) {
             console.log('Error -->', error)
@@ -44,7 +47,7 @@ function Weather() {
             <div className="weather-div">
                 <h1 className='heading'>Weather App</h1>
                 <div className='input-div'>
-                    <input type='text' placeholder='Search City' onChange={(e) => setcity(e.target.value)} />
+                    <input type='text' value={city} placeholder='Search City' onChange={(e) => cityData(e)} />
                     <button className='search-btn' onClick={() => setbuttonClicked(true)}>Search</button>
                 </div>
                 {weather && <div className='weather-display'>
