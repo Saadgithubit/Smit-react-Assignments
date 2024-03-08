@@ -14,14 +14,9 @@ function Weather() {
         if (buttonClicked) {
             fetchWeatherApi() 
         }
-        // if(!city){
-        //     alert('Search City')
-        // }
+    
     }, [buttonClicked])
 
-    // useEffect(() => {
-    //     console.log('city --> ',city);
-    //   }, [city]);
       
 const cityData = (e) => {
     setcity(e.target.value)
