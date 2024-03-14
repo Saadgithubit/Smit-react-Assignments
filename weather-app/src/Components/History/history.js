@@ -9,7 +9,7 @@ function History(props) {
     },[])
     console.log('history --> ', history);
     return (
-        <div style={{display:'flex',gap:'20px',flexWrap:'wrap'}}>
+        <div style ={{display:'flex',gap:'20px',flexWrap:'wrap'}}>
             {searchHistory.map((item) =>{
                 return(
                     <div style={{display:'flex',}}>
