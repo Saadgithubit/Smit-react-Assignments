@@ -8,34 +8,39 @@ function Weather() {
     const [buttonClicked, setbuttonClicked] = useState(false)
     const [historyClick, sethistoryClick] = useState(false)
     const [history, sethistory] = useState([])
+    const API_Key2 = '4ebb9418ca605fa1931880e565ec065c'
+   
 
-
+console.log(process.env.REACT_APP_API_KEY2);
     useEffect(() => {
         if (buttonClicked) {
-            fetchWeatherApi() 
+            fetchWeatherApi()
         }
-    
+
     }, [buttonClicked])
 
-      
-const cityData = (e) => {
-    setcity(e.target.value)
-}
+
+    const cityData = (e) => {
+        setcity(e.target.value)
+    }
     const fetchWeatherApi = async () => {
         try {
-            const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=4ebb9418ca605fa1931880e565ec065c`)
+            const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_Key2}`)
             const weatherData = await response.json()
             setweather(weatherData)
+            console.log(weatherData);
             setcity('')
 
-            
+
             sethistory((prevHistory) => [...prevHistory, { Name: weatherData.name, Temp: weatherData.main.temp }])
         } catch (error) {
             console.log('Error -->', error)
         }
         setbuttonClicked(false)
     }
-
+    // if (!weather) {
+    //     return <div>Loading Data ....</div>
+    // }
 
     return (
         <div className='weather-container'>
