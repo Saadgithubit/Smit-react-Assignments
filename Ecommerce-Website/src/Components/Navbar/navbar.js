@@ -1,5 +1,8 @@
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 function Navbar(){
+    const navigate = useNavigate()
     const totalCartProducts = useSelector(state => state.cartReducer.cart.length)
     console.log('cart --> ',totalCartProducts);
     return (
@@ -23,7 +26,7 @@ function Navbar(){
                 </span>
                 </li>
             </ul>
-            <button className='border-2 px-3 py-3 rounded-3xl font-bold w-40 hover:bg-blue-400 hover:text-white'>Buy Now</button>
+            <button onClick={() => navigate('/signin')} className='border-2 px-3 py-3 rounded-3xl font-bold w-40 hover:bg-blue-400 hover:text-white'>Log In</button>
           </div>  
         </nav>
     )
