@@ -1,9 +1,13 @@
 import { TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { settoken } from '../../Store/userToken';
+import { setUser } from '../../Store/userSlice';
 
 function Signin(){
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const [email, setemail] = useState()
     const [password, setpassword] = useState()
 
@@ -12,8 +16,8 @@ function Signin(){
             alert('Please Fill all fields')
             return
         }
-        fetch('https://node-js-azure-nine.vercel.app/user/login', {
-            method: "POST",
+        fetch('https://repulsive-turtleneck-shirt-ant.cyclic.app/users/login', {
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -21,7 +25,14 @@ function Signin(){
         })
             .then(res => res.json())
             .then(data => {
+                if(data.message != 'User Login Successfull'){
+                    alert(data.message)
+                    return
+                }
                 alert(data.message)
+                dispatch(settoken(data.usertoken))
+                dispatch(setUser(data.userdata))
+                console.log(data);
                 navigate('/')
 
             })

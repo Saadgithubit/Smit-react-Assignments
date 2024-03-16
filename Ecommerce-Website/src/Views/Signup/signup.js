@@ -25,7 +25,7 @@ function Signup() {
             alert('Both Password Are Not Same')
             return
         }
-        fetch('https://node-js-azure-nine.vercel.app/user/register', {
+        fetch('https://repulsive-turtleneck-shirt-ant.cyclic.app/users/register', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
