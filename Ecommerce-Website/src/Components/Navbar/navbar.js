@@ -16,7 +16,7 @@ function Navbar() {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                authorization: `Barier ${user.tokens[0]}`
+                authorization: `Barier ${userToken}`
             }
         })
             .then(res => res.json())

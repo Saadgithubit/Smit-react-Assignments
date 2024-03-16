@@ -25,7 +25,7 @@ function Signin(){
         })
             .then(res => res.json())
             .then(data => {
-                if(data.message != 'User Login Successfull'){
+                if(data.message !== 'User Login Successfull'){
                     alert(data.message)
                     return
                 }
