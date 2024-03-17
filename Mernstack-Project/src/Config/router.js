@@ -6,6 +6,7 @@ import Dashboard from "../Views/Dashboard/dashboard";
 import Details from "../Components/Details/details";
 import Signin from "../Views/Signin/signin";
 import Signup from "../Views/Signup/signup";
+import Postadd from "../Components/PostAdds/postAdds";
 
   const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ import Signup from "../Views/Signup/signup";
       {
         path: "/signup",
         element: <Signup/>,
+      },
+      {
+        path: "/postadd",
+        element: <Postadd/>,
       }
   ]);
 

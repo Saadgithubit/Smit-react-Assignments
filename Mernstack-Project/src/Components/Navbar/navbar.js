@@ -1,6 +1,7 @@
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { removetoken } from "../../Store/userToken";
+import { removeUser } from "../../Store/userSlice";
 
 function Navbar() {
     const navigate = useNavigate()
@@ -8,8 +9,8 @@ function Navbar() {
     const totalCartProducts = useSelector(state => state.cartReducer.cart.length)
     const user = useSelector(state => state.userReducer.user)
     const userToken = useSelector(state => state.userTokenReducer.tokens)
-    console.log('token',userToken);
-    console.log('token',user);
+    console.log('token', userToken);
+    console.log('user', user);
 
     const signOut = () => {
         fetch('https://repulsive-turtleneck-shirt-ant.cyclic.app/users/logout', {
@@ -22,8 +23,9 @@ function Navbar() {
             .then(res => res.json())
             .then(data => {
                 alert(data.message)
-                if(data.message === 'Logged out successfully'){
-                    dispatch(removetoken({}))
+                if (data.message === 'Logged out successfully') {
+                    dispatch(removetoken())
+                    dispatch(removeUser())
                 }
                 console.log(data);
             })
@@ -51,7 +53,12 @@ function Navbar() {
                     </li>
                 </ul>
                 {!user ? <button onClick={() => navigate('/signin')} className='border-2 px-3 py-3 rounded-3xl font-bold w-40 hover:bg-blue-400 hover:text-white'>Log In</button>
-                    : <button onClick={signOut} className='border-2 px-3 py-3 rounded-3xl font-bold w-40 hover:bg-blue-400 hover:text-white'>Log Out</button>}
+                    : <div>
+                        <p>{user.fullname}</p>
+                        <button onClick={signOut} className='border-2 px-3 py-3 rounded-3xl font-bold w-40 hover:bg-blue-400 hover:text-white'>Log Out</button>
+                        <button onClick={() => navigate('/postadd')} className='border-2 px-3 py-3 rounded-3xl font-bold w-40 hover:bg-blue-400 hover:text-white'>Add Post</button>
+                    </div>
+                }
             </div>
         </nav>
     )
