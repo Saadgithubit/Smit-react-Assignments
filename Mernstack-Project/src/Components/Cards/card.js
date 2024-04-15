@@ -13,9 +13,11 @@ function Cards() {
 
 
     function getData() {
-        fetch('https://dummyjson.com/products')
+        fetch('https://repulsive-turtleneck-shirt-ant.cyclic.app/ads/')
             .then(res => res.json())
-            .then(res => setproducts(res.products))
+            .then(res => {setproducts(res.data)
+                console.log(res.data);
+            })
         
     }
 
@@ -44,14 +46,14 @@ function Cards() {
             </div>
             <div className='flex flex-wrap w-full'>
                 {products.map(function (item) {
-                    const { id } = item
+                    const { _id } = item
                     return (
-                        <div className='border-2 w-72 mx-4 my-6 shadow-lg' onClick={() => navigate(`details/${id}`)}>
-                            <img src={item.images[0]} className='w-full h-48 border-y-2 bg-gray-50 p-4' />
+                        <div className='border-2 w-72 mx-4 my-6 shadow-lg' onClick={() => navigate(`details/${_id}`)}>
+                            <img src={item.images} className='w-full h-48 border-y-2 bg-gray-50 p-4' />
                             <div className='py-6'>
-                            <h3 className='text-blue-700 text-xl font-bold'>{item.brand}</h3>
+                            {/* <h3 className='text-blue-700 text-xl font-bold'>{item.brand}</h3> */}
                                 <h3 className='font-bold text-zinc-600 mt-2 hover:text-blue-600 font-serif'>{item.title}</h3>
-                                <h3 className='text-gray-500 font-bold'>Rs {item.price}</h3>
+                                <h3 className='text-gray-500 font-bold'>Rs {item.amount}</h3>
                             </div>
 
                         </div>

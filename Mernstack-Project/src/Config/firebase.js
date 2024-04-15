@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyBB2g3SQ4axW8Ah2XcxgVh0vrhtmVBqYvI",
     authDomain: "eccomerce-clone-website.firebaseapp.com",

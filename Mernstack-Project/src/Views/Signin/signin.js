@@ -10,10 +10,13 @@ function Signin(){
     const dispatch = useDispatch()
     const [email, setemail] = useState()
     const [password, setpassword] = useState()
+    const [isButtonClicked, setisButtonClicked] = useState(false)
 
     const signIn = () => {
+        setisButtonClicked(true)
         if(!email || !password){
             alert('Please Fill all fields')
+            setisButtonClicked(false)
             return
         }
         fetch('https://repulsive-turtleneck-shirt-ant.cyclic.app/users/login', {
@@ -72,6 +75,7 @@ function Signin(){
                     type='password'
                     label="Password"
                     variant="filled" />
+                    {!isButtonClicked?
                     <button
                     type='button'
                     onClick={signIn} 
@@ -79,7 +83,16 @@ function Signin(){
                     {background: "linear-gradient(to right, #9FCAED , #DAE1D9,#FFAE92)"}} 
                     className='my-12 w-full border-2 p-3 rounded-xl text-xl'>
                         Log In
-                        </button>
+                        </button>:
+                        <button
+                        type='button'
+                        onClick={signIn} 
+                        style={
+                        {background: "linear-gradient(to right, #9FCAED , #DAE1D9,#FFAE92)"}} 
+                        className='my-12 w-full border-2 p-3 rounded-xl text-xl'>
+                            <img className='w-7 m-auto' src='https://i.gifer.com/ZZ5H.gif'/>
+                            </button>}
+
                         <p className='w-full'>Don't Have Account?
                         <span onClick={() => navigate('/signup')} className='cursor-pointer text-blue-400 font-bold mx-3'>Sign Up</span></p>
                 </form>

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 import { postAd } from "../../Config/firebase"
 
 function Postadd() {
@@ -7,11 +8,13 @@ function Postadd() {
     const [amount, setamount] = useState()
     const [description, setdescription] = useState()
     const [image, setimage] = useState()
+    const navigate = useNavigate()
     const userToken = useSelector(state => state.userTokenReducer.tokens)
 
     const submit = async () => {
 
         await postAd(userToken,{ title, amount, description, image })
+        navigate('/')
 
     }
     return (

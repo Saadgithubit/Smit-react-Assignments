@@ -23,7 +23,7 @@ function Navbar() {
             .then(res => res.json())
             .then(data => {
                 alert(data.message)
-                if (data.message === 'Logged out successfully') {
+                if (data.message === 'Logged out successfully!') {
                     dispatch(removetoken())
                     dispatch(removeUser())
                 }
