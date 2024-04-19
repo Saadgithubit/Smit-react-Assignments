@@ -1,7 +1,7 @@
 import { useSelector,useDispatch } from "react-redux";
 import Navbar from "../../Components/Navbar/navbar";
 import { useState } from "react";
-import { setcart,removeAllCart,removeCartProduct } from "../../Store/cartSlice";
+import { setcart,removeAllCart,removeCartProducts } from "../../Store/cartSlice";
 
 function Cart() {
     const dispatch = useDispatch()
@@ -24,9 +24,8 @@ function Cart() {
     }
 
     const deleteProduct = () => {
-        if(checkedItem){
-            const newCart = [...cartProducts].splice(deleteIndex,quantity)
-            dispatch(setcart(newCart))
+        if(checkedItem.length > 0){
+            dispatch(removeCartProducts(checkedItem))
         }else{
             alert('Empty select')
         }

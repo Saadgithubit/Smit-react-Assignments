@@ -9,16 +9,20 @@ const cartSlice = createSlice({
       setcart: (state ,data) => {
         state.cart.push(data.payload)
       },
-      removeCartProduct: (state,data) => {
-        console.log(data);
+      removeCartProducts: (state,data) => {
+        const products = data.payload
+        console.log(products);
+        products.map((item) => {
+          state.cart.splice(item,1)
+        })
       },
-      removeAllCart: state => {
+       removeAllCart: state => {
         state.cart = []
       }
       
     }
   })
 
-  export const { setcart,removeAllCart,removeCartProduct } = cartSlice.actions
+  export const { setcart,removeAllCart,removeCartProducts } = cartSlice.actions
 
   export default cartSlice
