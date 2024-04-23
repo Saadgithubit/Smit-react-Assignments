@@ -1,6 +1,8 @@
+import './footer.css'
 function Footer() {
     return (
-        <div className="bg-blue-950 text-white flex justify-around px-8 py-16">
+        <div>
+        <div className="footer bg-blue-950 text-white flex justify-around px-8 py-16">
             <div className="w-3/12 p-3">
                 <h1 className="text-4xl font-bold">Our Mission</h1>
                 <p className="py-3 text-left mx-4">So seed seed green that winged cattle in. Gathering thing made fly you're no divided deep moved us lan Gathering thing us land years living.</p>
@@ -35,8 +37,13 @@ function Footer() {
             </div>
 
             </div>
-
         </div>
+        <div className="hidden-footer bg-blue-950 text-white font-bold text-2xl h-24 flex justify-center items-center">
+        <p>
+        © 2020 Copyright: MDBootstrap.com
+        </p>
+    </div>
+    </div>
     )
 }
 

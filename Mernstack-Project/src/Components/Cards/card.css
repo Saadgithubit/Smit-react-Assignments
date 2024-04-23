@@ -1,0 +1,22 @@
+@media only screen and (max-width: 766px) {
+    .ineer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .img {
+        display: none;
+    }
+
+    .right {
+        width: 100%;
+        padding: 10px;
+    }
+    .right div{
+        width: fit-content;
+    }
+    .img2{
+        padding-left: 10px;
+    }
+}

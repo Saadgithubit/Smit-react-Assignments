@@ -1,3 +1,4 @@
+import './navbar.css'
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { removetoken } from "../../Store/userToken";
@@ -11,6 +12,7 @@ function Navbar() {
     const user = useSelector(state => state.userReducer.user)
     const userToken = useSelector(state => state.userTokenReducer.tokens)
     const [isoptionclicked, setisoptionclicked] = useState(false)
+    const [isButtonclicked, setisButtonclicked] = useState(false)
     // console.log('token', userToken);
     // console.log('user', user);
 
@@ -34,7 +36,8 @@ function Navbar() {
     }
 
     return (
-        <nav className="bg-white border-2 px-3 py-6 flex justify-around">
+        <div>
+        <nav className="bg-white border-2 px-3 py-6 flex justify-around navbar">
             <div className="flex space-x-2 text-3xl py-2">
                 <i class="fa-regular fa-chart-bar m-1 text-blue-500"></i>
                 <h4 className="font-bold">Sapphire</h4>
@@ -70,6 +73,26 @@ function Navbar() {
 
             </div>
         </nav>
+        <nav className="hamb flex justify-between mr-3 my-2 border-t-2 border-b-2 w-full p-2">
+            <div className='flex justify-center items-center mx-4 text-xl font-bold text-gray-600'>
+                {user? <p>{user.fullname}</p>: <p> No User</p>}
+            </div>
+                <div>
+                <i onClick={() => setisButtonclicked(!isButtonclicked)} class="fa-solid fa-bars text-2xl border-2 w-16 p-2 rounded-lg"></i>
+                </div>
+                {isButtonclicked && <div className='absolute top-16 right-3 bg-white'>
+                <ul className="flex flex-col py-3 border-2 w-72">
+                    <li className="h-12 flex justify-center items-center hover:text-blue-600 hover:bg-gray-400 hover:cursor-pointer">Home</li>
+                    <li className="h-12 flex justify-center items-center hover:text-blue-600 hover:bg-gray-400 hover:cursor-pointer">Shop</li>
+                    <li className="h-12 flex justify-center items-center hover:text-blue-600 hover:bg-gray-400 hover:cursor-pointer">Blogs</li>
+                    <li className="h-12 flex justify-center items-center hover:text-blue-600 hover:bg-gray-400 hover:cursor-pointer">Pages</li>
+                    <li className="h-12 flex justify-center items-center hover:text-blue-600 hover:bg-gray-400 hover:cursor-pointer">Contact</li>
+                    {!user?<li onClick={() => navigate('/signin')} className="h-12 font-bold flex justify-center items-center hover:text-blue-600 hover:bg-gray-400 hover:cursor-pointer">Log In</li>
+                    :<li onClick={signOut} className="h-12 font-bold flex justify-center items-center hover:text-blue-600 hover:bg-gray-400 hover:cursor-pointer">Log Out</li>}
+                    </ul>
+                </div>}
+            </nav>
+        </div>
     )
 }
 

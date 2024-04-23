@@ -1,0 +1,11 @@
+.hamb{
+    display: none;
+}
+@media only screen and (max-width: 768px){
+    .navbar{
+        display: none;
+    }
+    .hamb{
+        display: flex;
+    }
+}
