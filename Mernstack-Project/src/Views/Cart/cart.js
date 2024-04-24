@@ -45,13 +45,13 @@ function Cart() {
         <div>
             <Navbar />
             <h1 className="text-blue-500 font-bold text-2xl my-4">Cart Items</h1>
-            <div className="border-2 w-2/3 m-auto flex justify-between p-2">
+            {cartProducts.length >= 1? <div className="border-2 w-2/3 m-auto flex justify-between p-2">
                 <span className="flex space-x-4">
                     <input onChange={() => setisAllChecked(!isAllChecked)} checked={isAllChecked} type="checkbox" />
                     <p>Select all</p>
                 </span>
                 <i onClick={deleteAll} class="fa-solid fa-trash text-xl"></i>
-            </div>
+            </div>:<div> <p>No Cart Products</p></div>}
             <div>
                 {cartProducts.map((products, index) => {
                     return (

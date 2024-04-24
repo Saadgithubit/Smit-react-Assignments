@@ -35,6 +35,11 @@ function Navbar() {
             })
     }
 
+    const signInFirst = () => {
+        alert('Sign In First')
+        navigate('/signin')
+    }
+
     return (
         <div>
         <nav className="bg-white border-2 px-3 py-6 flex justify-around navbar">
@@ -52,7 +57,7 @@ function Navbar() {
                     <li className='flex space-x-7 mx-20'>
                         <i class="fa-solid fa-magnifying-glass hover:text-blue-600 hover:cursor-pointer"></i>
                         <span className="flex space-x-2">
-                            <i onClick={() => navigate('/cart')} class="fa-solid fa-cart-shopping hover:text-blue-600 hover:cursor-pointer"></i>
+                            <i onClick={() => {user? navigate('/cart'): signInFirst()}} class="fa-solid fa-cart-shopping hover:text-blue-600 hover:cursor-pointer"></i>
                             <p>{totalCartProducts}</p>
                         </span>
                     </li>
@@ -62,7 +67,10 @@ function Navbar() {
                         <button onClick={() => setisoptionclicked(!isoptionclicked)} className="border-2 bg-blue-500 text-white w-36 p-2 rounded-lg">{user.fullname} <i class="mx-1 fa-solid fa-caret-down"></i></button>
                         {isoptionclicked && <div className="flex flex-col border-2 rounded-md w-36 absolute top-23 bg-gray-300">
                             <button onClick={signOut} className='px-3 py-3 font-bold hover:bg-blue-400 hover:text-white'>Log Out</button>
-                            {user.email === 'saad@gmail.com' &&<button onClick={() => navigate('/postadd')} className='px-3 py-3 font-bold hover:bg-blue-400 hover:text-white'>Add Post</button>}
+                            {user.email === 'saad@gmail.com' &&<div className='w-full'>
+                                <button onClick={() => navigate('/postadd')} className='w-full px-3 py-3 font-bold hover:bg-blue-400 hover:text-white'>Add Post</button>
+                                <button onClick={() => navigate('/myadds')} className='w-full px-3 py-3 font-bold hover:bg-blue-400 hover:text-white'>My Adds</button>
+                                </div>}
                         </div>}
 
 

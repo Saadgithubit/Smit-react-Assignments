@@ -8,6 +8,7 @@ import Signin from "../Views/Signin/signin";
 import Signup from "../Views/Signup/signup";
 import Postadd from "../Components/PostAdds/postAdds";
 import Cart from "../Views/Cart/cart";
+import MyAdds from "../Components/MyAdds/myAdds";
 
   const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ import Cart from "../Views/Cart/cart";
       {
         path: "/cart",
         element: <Cart/>,
+      },
+      {
+        path: "/myadds",
+        element: <MyAdds/>,
       }
   ]);
 
