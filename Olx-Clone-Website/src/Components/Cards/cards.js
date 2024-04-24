@@ -25,7 +25,6 @@ function Cards() {
 
     const cardClick = (item) => {
         const { id } = item
-
         if (!activeUser) {
             Swal.fire({
                 title: "Please Sign In First",
