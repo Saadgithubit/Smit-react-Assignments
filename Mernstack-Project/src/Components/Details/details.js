@@ -46,11 +46,11 @@ function Details() {
     return (
         <div>
             <Navbar />
-            <div className='flex justify-around my-8 w-full'>
-                <div className='border-2 w-2/4 p-3 flex'>
+            <div className='md:flex lg:flex sm:col-auto justify-around my-8 w-full'>
+                <div className='border-2 lg:w-2/4 md:w-2/4 p-3 flex'>
                     <img className='w-screen p-7' src={product.images} />
                 </div>
-                <div className='border-2 p-5 w-1/3 text-left'>
+                <div className='border-2 p-5 md:w-1/3 lg:w-1/3 text-left'>
                     <h3 className='text-red-700 font-serif'>In demand. 69 people bought this in the last 24 hours.</h3>
                     <h1 className='mt-4 text-3xl font-bold text-blue-800 '>{product.title}</h1>
                     <h2 className='font-bold text-3xl text-green-700 mt-4'>USD {product.amount}</h2>

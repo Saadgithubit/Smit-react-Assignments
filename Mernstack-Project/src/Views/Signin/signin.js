@@ -49,7 +49,7 @@ function Signin(){
             backgroundSize:'cover'
             }} className="flex flex-col justify-center items-center p-3 h-screen">
 
-            <div className="w-1/3 h-96 m-auto bg-white rounded-xl">
+            <div className="sm:w-1/2 lg:w-1/3 h-96 m-auto bg-white rounded-xl">
                 <form className="bg-transparent p-5 h-auto">
                 <h1 className='text-2xl text-blue-400 font-bold'>Sign In Page</h1>
                 <TextField

@@ -50,7 +50,7 @@ function Signup() {
                     backgroundSize: 'cover'
                 }} className="flex flex-col justify-center items-center p-3 h-screen">
 
-            <div className="w-1/2 h-auto m-auto mt-6 bg-white rounded-xl">
+            <div className="sm:w-1/2 lg:w-1/3 h-auto m-auto mt-6 bg-white rounded-xl">
                 <form className="bg-transparent p-8 h-auto">
                     <h1 className='text-2xl text-blue-400 font-bold'>Sign Up Page</h1>
                     <TextField
