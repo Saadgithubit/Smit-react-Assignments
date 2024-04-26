@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
-import Navbar from "../../Components/Navbar/navbar";
 import { useState } from "react";
+import Swal from 'sweetalert2'
+
+import Navbar from "../../Components/Navbar/navbar";
 import { setcart, removeAllCart, removeCartProducts } from "../../Store/cartSlice";
 
 function Cart() {
@@ -8,17 +10,25 @@ function Cart() {
     const cartProducts = useSelector(state => state.cartReducer.cart)
     const [checkedItem, setcheckedItem] = useState([])
     const [isAllChecked, setisAllChecked] = useState(false)
+    const [totalAmount, settotalAmount] = useState(0)
+    const [deliveryCharges, setdeliveryCharges] = useState(0)
     const [isSingleChecked, setisSingleChecked] = useState()
     const [deleteIndex, setdeleteIndex] = useState(null)
     const [quantity, setquantity] = useState(0)
-    console.log('cartProducts',cartProducts);
-
+    console.log(cartProducts);
     const handleCheckAllBox = () => {
         setisAllChecked(!isAllChecked);
     }
 
     const handleCheckBox = (e, index) => {
         setisSingleChecked(e.target.checked)
+        settotalAmount(totalAmount + cartProducts[index].amount)
+        setdeliveryCharges(150)
+        if (e.target.checked === false) {
+            settotalAmount(totalAmount - cartProducts[index].amount)
+            setdeliveryCharges(0)
+        }
+        console.log('totalAmount', totalAmount);
         const newCheckedItems = [...checkedItem];
         if (newCheckedItems.includes(index)) {
             newCheckedItems.splice(newCheckedItems.indexOf(index), 1);
@@ -26,14 +36,32 @@ function Cart() {
             newCheckedItems.push(index);
         }
         setcheckedItem(newCheckedItems);
-        console.log('checkedItem', checkedItem);
     }
 
     const deleteProduct = () => {
+
         if (checkedItem.length > 0) {
-            dispatch(removeCartProducts(checkedItem))
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+                    dispatch(removeCartProducts(checkedItem))
+
+                }
+            });
         } else {
-            alert('Empty select')
+            Swal.fire("Empty Select");
         }
 
     }
@@ -70,6 +98,24 @@ function Cart() {
                         </div>
                     )
                 })}
+            </div>
+            <div className="fixed bottom-2 right-2 bg-white border-2 flex flex-col w-1/3 justify-center items-center p-2">
+                <h1 className="font-bold text-xl h-10 border-b-2 w-full flex items-center justify-center">Order Summary</h1>
+                <span className="flex space-x-3 w-full p-2">
+                    <p className="font-bold">Subtotal ({checkedItem.length} Items)</p>
+                    <p>{totalAmount}</p>
+                </span>
+                <span className="flex space-x-3 w-full p-2">
+                    <p className="font-bold">Delivery Charges</p>
+                    <p>{deliveryCharges}</p>
+                </span>
+                <span className="flex space-x-3 w-full p-2">
+                    <p className="font-bold">Total</p>
+                    <p>{totalAmount + deliveryCharges}</p>
+                </span>
+                <span className="w-full">
+                    <button className="w-full text-white rounded-md p-2 bg-orange-600">Proceed to check Out ({checkedItem.length})</button>
+                </span>
             </div>
         </div>
     )

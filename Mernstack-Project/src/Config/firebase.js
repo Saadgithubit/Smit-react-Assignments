@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import Swal from 'sweetalert2'
 
 
 const firebaseConfig = {
@@ -44,9 +45,20 @@ export async function postAd(userToken, postData) {
         });
         const result = await response.json();
         if(result.message !== 'Ad posted successfully'){
-            alert(result.message)
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: result.message,
+              });
+              return
         }
-        alert(result.message);
+        Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: result.message,
+            showConfirmButton: false,
+            timer: 1500
+          });
 
     } catch (error) {
         alert('Something went wrong',error);

@@ -1,6 +1,8 @@
 import './navbar.css'
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
+
 import { removetoken } from "../../Store/userToken";
 import { removeUser } from "../../Store/userSlice";
 import { useState } from "react";
@@ -26,7 +28,7 @@ function Navbar() {
         })
             .then(res => res.json())
             .then(data => {
-                alert(data.message)
+                Swal.fire(data.message);
                 if (data.message === 'Logged out successfully!') {
                     dispatch(removetoken())
                     dispatch(removeUser())

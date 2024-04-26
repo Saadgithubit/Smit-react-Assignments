@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react"
+import Swal from 'sweetalert2'
+
 function MyAdds() {
     const [products, setproducts] = useState([])
 
@@ -18,17 +20,37 @@ function MyAdds() {
 
     const deleteAdd = (id) => {
 
-        console.log(id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't to delete this product!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
 
-        fetch(`https://repulsive-turtleneck-shirt-ant.cyclic.app/ads/delete/${id}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            }   
-        })
-        .then(res => res.json())
-        .then(res => alert(res.message))
-        .catch(err => console.error(err));
+                fetch(`https://repulsive-turtleneck-shirt-ant.cyclic.app/ads/delete/${id}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }   
+                })
+                .then(res => res.json())
+                .then(res => {
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: res.message,
+                        icon: "success"
+                      });
+                })
+                .catch(err => console.error(err));
+              
+            }
+          });
+
+       
     }
 
     if (!products.length) {

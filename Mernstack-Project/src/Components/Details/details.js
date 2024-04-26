@@ -2,6 +2,8 @@ import './details.css';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import Swal from 'sweetalert2'
+
 import Navbar from '../Navbar/navbar'
 import Footer from '../Footer/footer';
 import { setcart } from '../../Store/cartSlice';
@@ -39,6 +41,17 @@ function Details() {
 
     }
 
+    function addToCart(){
+        Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Item Added To Cart",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        dispatch(setcart(product))
+    }
+
     if (product === '') {
         return <div>Loading ....</div>
     }
@@ -60,7 +73,7 @@ function Details() {
                     <h3 className='mt-6 mx-4 text-sm'>Rating <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </h3>
                     <h5 className='mt-2 font-light'><i class="fa-solid fa-check mr-2"></i>Return & Change Excepted</h5>
-                    <button onClick={() => dispatch(setcart(product))} className='px-12 py-4 w-full text-xl my-4 bg-blue-900 text-white rounded cursor-pointer'>Add To Cart</button>
+                    <button onClick={addToCart} className='px-12 py-4 w-full text-xl my-4 bg-blue-900 text-white rounded cursor-pointer'>Add To Cart</button>
                 </div>
 
             </div>
