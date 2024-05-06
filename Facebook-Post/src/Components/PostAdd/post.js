@@ -41,6 +41,10 @@ function PostAdd() {
     }
     return (
         <div className='post'>
+            <div className='border-2 border-black'>
+                <img/>
+                <input type='text'/>
+            </div>
             {list.map(function (item) {
                 return <div className="hero">
 
