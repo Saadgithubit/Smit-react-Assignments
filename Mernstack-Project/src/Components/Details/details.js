@@ -21,7 +21,7 @@ function Details() {
 
     function getData() {
 
-        fetch('https://repulsive-turtleneck-shirt-ant.cyclic.app/ads/singleAd/' + adId)
+        fetch('https://busy-teal-firefly-gear.cyclic.app/ads/singleAd/' + adId)
             .then(res => res.json())
             .then(res => setproduct(res.data))
 

@@ -25,7 +25,7 @@ function Signup() {
             alert('Both Password Are Not Same')
             return
         }
-        fetch('https://repulsive-turtleneck-shirt-ant.cyclic.app/users/register', {
+        fetch('https://busy-teal-firefly-gear.cyclic.app/users/register', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -14,7 +14,7 @@ function Cards() {
 
 
     function getData() {
-        fetch('https://repulsive-turtleneck-shirt-ant.cyclic.app/ads/')
+        fetch('https://busy-teal-firefly-gear.cyclic.app/ads/')
             .then(res => res.json())
             .then(res => {setproducts(res.data)
                 console.log(res.data);
