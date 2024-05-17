@@ -19,7 +19,7 @@ function Navbar() {
     // console.log('user', user);
 
     const signOut = () => {
-        fetch('https://repulsive-turtleneck-shirt-ant.cyclic.app/users/logout', {
+        fetch('https://busy-teal-firefly-gear.cyclic.app/users/logout', {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
