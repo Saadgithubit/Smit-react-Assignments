@@ -9,7 +9,7 @@ function MyAdds() {
     }, [])
 
     const getMyAdds = () => {
-        fetch('https://repulsive-turtleneck-shirt-ant.cyclic.app/ads/')
+        fetch('https://busy-teal-firefly-gear.cyclic.app/ads/')
             .then(res => res.json())
             .then(res => 
                 {setproducts(res.data)
