@@ -49,7 +49,7 @@ function Cards() {
                 {products.map(function (item) {
                     const { _id } = item
                     return (
-                        <div className='border-2 w-72 mx-4 md:mx-6 my-6 shadow-lg' onClick={() => navigate(`details/${_id}`)}>
+                        <div className='border-2 w-72 mx-2 md:mx-8 lg:mx-4 my-6 shadow-lg' onClick={() => navigate(`details/${_id}`)}>
                             <img src={item.images} className='w-full h-48 border-y-2 bg-gray-50 p-4' />
                             <div className='py-6'>
                             {/* <h3 className='text-blue-700 text-xl font-bold'>{item.brand}</h3> */}

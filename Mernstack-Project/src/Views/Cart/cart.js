@@ -78,6 +78,26 @@ function Cart() {
     return (
         <div>
             <Navbar />
+            <div className="flex justify-end p-2">
+            <div className="bg-white border-2 flex flex-col w-1/3 justify-center items-center p-2">
+                <h1 className="font-bold text-xl h-10 border-b-2 w-full flex items-center justify-center">Order Summary</h1>
+                <span className="flex space-x-3 w-full p-2">
+                    <p className="font-bold">Subtotal ({checkedItem.length} Items)</p>
+                    <p>{totalAmount}</p>
+                </span>
+                <span className="flex space-x-3 w-full p-2">
+                    <p className="font-bold">Delivery Charges</p>
+                    <p>{deliveryCharges}</p>
+                </span>
+                <span className="flex space-x-3 w-full p-2">
+                    <p className="font-bold">Total</p>
+                    <p>{totalAmount + deliveryCharges}</p>
+                </span>
+                <span className="w-full">
+                    <button className="w-full text-white rounded-md p-2 bg-orange-600">Proceed to check Out ({checkedItem.length})</button>
+                </span>
+            </div>
+            </div>
             <h1 className="text-blue-500 font-bold text-2xl my-4">Cart Items</h1>
             {cartProducts.length >= 1 ? <div className="border-2 md:w-2/3 lg:w-2/3 m-auto flex justify-between p-2">
                 <span className="flex space-x-4">
@@ -99,24 +119,7 @@ function Cart() {
                     )
                 })}
             </div>
-            <div className="fixed bottom-2 right-2 bg-white border-2 flex flex-col w-1/3 justify-center items-center p-2">
-                <h1 className="font-bold text-xl h-10 border-b-2 w-full flex items-center justify-center">Order Summary</h1>
-                <span className="flex space-x-3 w-full p-2">
-                    <p className="font-bold">Subtotal ({checkedItem.length} Items)</p>
-                    <p>{totalAmount}</p>
-                </span>
-                <span className="flex space-x-3 w-full p-2">
-                    <p className="font-bold">Delivery Charges</p>
-                    <p>{deliveryCharges}</p>
-                </span>
-                <span className="flex space-x-3 w-full p-2">
-                    <p className="font-bold">Total</p>
-                    <p>{totalAmount + deliveryCharges}</p>
-                </span>
-                <span className="w-full">
-                    <button className="w-full text-white rounded-md p-2 bg-orange-600">Proceed to check Out ({checkedItem.length})</button>
-                </span>
-            </div>
+           
         </div>
     )
 }

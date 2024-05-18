@@ -19,7 +19,7 @@ function Navbar() {
     // console.log('user', user);
 
     const signOut = () => {
-        fetch('https://repulsive-turtleneck-shirt-ant.cyclic.app/users/logout', {
+        fetch('https://busy-teal-firefly-gear.cyclic.app/users/logout', {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -49,7 +49,7 @@ function Navbar() {
                 <i class="fa-regular fa-chart-bar m-1 text-blue-500"></i>
                 <h4 className="font-bold">Sapphire</h4>
             </div>
-            <div className='flex space-x-8'>
+            <div className='flex'>
                 <ul className="flex py-3">
                     <li className="mx-6 hover:text-blue-600 hover:cursor-pointer">Home</li>
                     <li className="mx-6 hover:text-blue-600 hover:cursor-pointer">Shop</li>
