@@ -16,7 +16,7 @@ function Quiz() {
 
   useEffect(() => {
     getApi();
-  }, []); // Add getApi as a dependency if it's defined outside the useEffect
+  }, [getApi]); // Add getApi as a dependency if it's defined outside the useEffect
 
   function getApi() {
     fetch("https://the-trivia-api.com/v2/questions")
