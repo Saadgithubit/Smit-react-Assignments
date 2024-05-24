@@ -93,10 +93,9 @@
   
   .question-div h2 {
     font-size: 25px;
-    padding: 10px;
-    text-align: justify;
-    height: 70px;
-    padding: 10px;
+    text-align: center;
+    height: auto;
+    padding-bottom: 10px;
     border-bottom: 3px solid white;
     display: flex;
     justify-content: center;
