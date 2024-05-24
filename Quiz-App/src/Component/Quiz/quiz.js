@@ -10,6 +10,7 @@ function Quiz(){
     const [toggle, settoggle] = useState(false);
     const [minute, setminute] = useState(null);
     const [sec, setsec] = useState(59);
+    const [bgcolor , setbgcolor] = useState(false)
     const [selectedOption, setselectedOption] = useState(null)
     const dispatch = useDispatch()
     const fontcolor = useSelector(state => state.color)
