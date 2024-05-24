@@ -96,7 +96,7 @@ function Quiz(){
     
     function checkAnswer(option) {
       setselectedOption(option)
-      if (option == question[currentIndex].correctAnswer) {
+      if (option === question[currentIndex].correctAnswer) {
         setscore(score + 1);
         console.log(option);
       }
