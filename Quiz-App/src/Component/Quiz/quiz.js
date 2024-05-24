@@ -11,11 +11,10 @@ function Quiz(){
     const [minute, setminute] = useState(null);
     const [sec, setsec] = useState(59);
     const [selectedOption, setselectedOption] = useState(null)
-    const [bgcolor , setbgcolor] = useState(false)
     const dispatch = useDispatch()
     const fontcolor = useSelector(state => state.color)
   
-    useEffect(function () {
+    useEffect(() => {
       getApi();
     }, []);
   
@@ -25,7 +24,7 @@ function Quiz(){
         // .then(res => console.log(res))
         .then((res) => 
         {
-          res.map(function(item){
+          res.map((item) => {
           item.options = [...item.incorrectAnswers , item.correctAnswer]
           shuffle(item.options)
         })
@@ -52,7 +51,7 @@ function Quiz(){
       return array;
     }
   
-    useEffect(function () {
+    useEffect(() => {
       let timer;
       if (minute !== null && minute >= 0) {
         timer = setInterval(() => {
