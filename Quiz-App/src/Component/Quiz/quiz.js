@@ -91,7 +91,7 @@ function Quiz(){
     
     function checkAnswer(option) {
       setselectedOption(option)
-      if (option == question[currentIndex].correctAnswer) {
+      if (option === question[currentIndex].correctAnswer) {
         setscore(score + 1);
         console.log(option);
       }
@@ -108,8 +108,10 @@ function Quiz(){
     const isLastQuestion = currentIndex !== question.length;
 
     if (!question.length) {
-        return
-        <div>Loading....</div>;
+        return(
+
+          <div>Loading....</div>
+        )
       }
       return (
         <div className="main">
