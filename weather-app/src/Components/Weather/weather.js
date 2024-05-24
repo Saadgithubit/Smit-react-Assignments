@@ -8,10 +8,10 @@ function Weather() {
     const [buttonClicked, setbuttonClicked] = useState(false)
     const [historyClick, sethistoryClick] = useState(false)
     const [history, sethistory] = useState([])
-    const API_Key2 = '4ebb9418ca605fa1931880e565ec065c'
+    const apiKey = process.env.REACT_APP_API_KEY
    
 
-console.log(process.env.REACT_APP_API_KEY2);
+console.log('api' , apiKey);
     useEffect(() => {
         if (buttonClicked) {
             fetchWeatherApi()
@@ -25,7 +25,7 @@ console.log(process.env.REACT_APP_API_KEY2);
     }
     const fetchWeatherApi = async () => {
         try {
-            const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_Key2}`)
+            const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
             const weatherData = await response.json()
             setweather(weatherData)
             console.log(weatherData);
