@@ -30,7 +30,7 @@ export async function postAd(userToken, postData) {
         const imageUrl = await getDownloadURL(storageRef);
         postData.image = imageUrl
 
-        const response = await fetch('https://busy-teal-firefly-gear.cyclic.app/ads/post', {
+        const response = await fetch('https://node-js-production-7fec.up.railway.app/ads/post', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

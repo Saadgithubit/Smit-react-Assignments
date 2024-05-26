@@ -21,7 +21,7 @@ function Details() {
 
     function getData() {
 
-        fetch('https://busy-teal-firefly-gear.cyclic.app/ads/singleAd/' + adId)
+        fetch('https://node-js-production-7fec.up.railway.app/ads/singleAd/' + adId)
             .then(res => res.json())
             .then(res => setproduct(res.data))
 

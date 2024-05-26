@@ -19,7 +19,7 @@ function Navbar() {
     // console.log('user', user);
 
     const signOut = () => {
-        fetch('https://busy-teal-firefly-gear.cyclic.app/users/logout', {
+        fetch('https://node-js-production-7fec.up.railway.app/users/logout', {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -46,12 +46,12 @@ function Navbar() {
         <div>
         <nav className="bg-white border-2 px-3 py-6 flex justify-around navbar">
             <div className="flex space-x-2 text-3xl py-2">
-                <i class="fa-regular fa-chart-bar m-1 text-blue-500"></i>
-                <h4 className="font-bold">Sapphire</h4>
+                <i onClick={() => navigate('/')} class="cursor-pointer fa-regular fa-chart-bar m-1 text-blue-500"></i>
+                <h4 onClick={() => navigate('/')} className="font-bold cursor-pointer">Sapphire</h4>
             </div>
             <div className='flex'>
                 <ul className="flex py-3">
-                    <li className="mx-6 hover:text-blue-600 hover:cursor-pointer">Home</li>
+                    <li onClick={() => navigate('/')} className="mx-6 hover:text-blue-600 hover:cursor-pointer">Home</li>
                     <li className="mx-6 hover:text-blue-600 hover:cursor-pointer">Shop</li>
                     <li className="mx-6 hover:text-blue-600 hover:cursor-pointer">Blogs</li>
                     <li className="mx-6 hover:text-blue-600 hover:cursor-pointer">Pages</li>

@@ -25,7 +25,7 @@ function Signup() {
             alert('Both Password Are Not Same')
             return
         }
-        fetch('https://busy-teal-firefly-gear.cyclic.app/users/register', {
+        fetch('https://node-js-production-7fec.up.railway.app/users/register', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -9,7 +9,7 @@ function MyAdds() {
     }, [])
 
     const getMyAdds = () => {
-        fetch('https://busy-teal-firefly-gear.cyclic.app/ads/')
+        fetch('https://node-js-production-7fec.up.railway.app/ads/')
             .then(res => res.json())
             .then(res => 
                 {setproducts(res.data)
