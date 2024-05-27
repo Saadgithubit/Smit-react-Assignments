@@ -78,8 +78,29 @@ function Cart() {
     return (
         <div>
             <Navbar />
-            <div className="flex justify-end p-2">
-            <div className="bg-white border-2 flex flex-col w-1/3 justify-center items-center p-2">
+            <h1 className="text-blue-500 font-bold text-2xl my-4">Cart Items</h1>
+            {cartProducts.length >= 1 ? <div className="border-2 md:w-2/3 lg:w-2/3 m-auto flex justify-between p-2">
+                <span className="flex space-x-4">
+                    <input onChange={handleCheckAllBox} checked={isAllChecked} type="checkbox" />
+                    <p>Select all</p>
+                </span>
+                <i onClick={deleteAll} class="fa-solid fa-trash text-xl"></i>
+            </div> : <div> <p>No Cart Products</p></div>}
+            <div className="my-2 flex justify-around p-2">
+            <div className="w-1/2">
+                {cartProducts.map((products, index) => {
+                    return (
+                        <div key={index} className="w-full border-2 h-48 flex justify-between items-center p-2">
+                            <input checked={checkedItem.includes(index)} onChange={(e) => handleCheckBox(e, index)} type="checkbox" />
+                            <img className="w-32 h-32" src={products.images} />
+                            <p className="font-bold text-xl text-blue-600">{products.title}</p>
+                            <p className="font-bold text-xl text-orange-500">{products.amount}</p>
+                            <i onClick={deleteProduct} class="fa-solid fa-trash text-xl"></i>
+                        </div>
+                    )
+                })}
+            </div>
+                <div className="bg-white h-max border-2 flex flex-col w-1/3 justify-center items-center p-2">
                 <h1 className="font-bold text-xl h-10 border-b-2 w-full flex items-center justify-center">Order Summary</h1>
                 <span className="flex space-x-3 w-full p-2">
                     <p className="font-bold">Subtotal ({checkedItem.length} Items)</p>
@@ -98,28 +119,6 @@ function Cart() {
                 </span>
             </div>
             </div>
-            <h1 className="text-blue-500 font-bold text-2xl my-4">Cart Items</h1>
-            {cartProducts.length >= 1 ? <div className="border-2 md:w-2/3 lg:w-2/3 m-auto flex justify-between p-2">
-                <span className="flex space-x-4">
-                    <input onChange={handleCheckAllBox} checked={isAllChecked} type="checkbox" />
-                    <p>Select all</p>
-                </span>
-                <i onClick={deleteAll} class="fa-solid fa-trash text-xl"></i>
-            </div> : <div> <p>No Cart Products</p></div>}
-            <div>
-                {cartProducts.map((products, index) => {
-                    return (
-                        <div key={index} className="lg:w-2/3 md:w-2/3 border-2 h-48 flex justify-between items-center p-2 my-2 m-auto">
-                            <input checked={checkedItem.includes(index)} onChange={(e) => handleCheckBox(e, index)} type="checkbox" />
-                            <img className="w-32 h-32" src={products.images} />
-                            <p className="font-bold text-xl text-blue-600">{products.title}</p>
-                            <p className="font-bold text-xl text-orange-500">{products.amount}</p>
-                            <i onClick={deleteProduct} class="fa-solid fa-trash text-xl"></i>
-                        </div>
-                    )
-                })}
-            </div>
-           
         </div>
     )
 }
