@@ -1,7 +1,7 @@
 import { TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import Swal from 'sweetalert2'
 
 import { settoken } from '../../Store/userToken';
@@ -54,6 +54,19 @@ function Signin() {
                 setisButtonClicked(false)
             })
     }
+    useEffect(() => {
+        const handleKeyPress = (e) => {
+            if (e.key === 'Enter') {
+                signIn();
+            }
+        };
+
+        window.addEventListener('keypress', handleKeyPress);
+
+        return () => {
+            window.removeEventListener('keypress', handleKeyPress);
+        };
+    }, [signIn]);
     return (
         <div
             style={

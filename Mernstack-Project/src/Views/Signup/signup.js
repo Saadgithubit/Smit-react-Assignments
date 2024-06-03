@@ -1,5 +1,5 @@
 import { TextField } from '@mui/material';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Signup() {
@@ -41,6 +41,19 @@ function Signup() {
             .catch(error => console.error(error))
 
     }
+    useEffect(() => {
+        const handleKeyPress = (e) => {
+            if (e.key === 'Enter') {
+                signUp();
+            }
+        };
+
+        window.addEventListener('keypress', handleKeyPress);
+
+        return () => {
+            window.removeEventListener('keypress', handleKeyPress);
+        };
+    }, [signUp]);
     return (
         <div
             style={
