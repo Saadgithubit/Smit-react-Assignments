@@ -15,9 +15,6 @@ const cartSlice = createSlice({
         products.map((item) => {
           state.cart.splice(item,1)
         })
-      },
-       removeAllCart: state => {
-        state.cart = []
       }
       
     }

@@ -18,6 +18,18 @@ function Cart() {
     console.log(cartProducts);
     const handleCheckAllBox = () => {
         setisAllChecked(!isAllChecked);
+        {!isAllChecked ? cartProducts.map((product) => {
+            settotalAmount(totalAmount + product.amount)
+            setdeliveryCharges(250)
+            // console.log(amount);
+        }): allamountZero()
+        
+    }
+    }
+
+    const allamountZero = () => {
+        setdeliveryCharges(0)
+        settotalAmount(0)
     }
 
     const handleCheckBox = (e, index) => {
@@ -68,10 +80,30 @@ function Cart() {
 
     const deleteAll = () => {
         if (isAllChecked) {
-            dispatch(removeAllCart())
-            setisAllChecked(false)
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+                    dispatch(removeCartProducts(cartProducts))
+                    setisAllChecked(false)
+                    settotalAmount(0)
+                    setdeliveryCharges(0)
+                }
+            });
+            
         } else {
-            alert('Empty Select')
+            Swal.fire('No Select Product');
         }
     }
 
@@ -86,21 +118,21 @@ function Cart() {
                 </span>
                 <i onClick={deleteAll} class="fa-solid fa-trash text-xl"></i>
             </div> : <div> <p>No Cart Products</p></div>}
-            <div className="my-2 flex justify-around p-2">
-            <div className="w-1/2">
+            <div className="my-2 flex flex-col md:flex-row justify-around">
+            <div className="md:w-1/2 lg:w-[60%]">
                 {cartProducts.map((products, index) => {
                     return (
-                        <div key={index} className="w-full border-2 h-48 flex justify-between items-center p-2">
-                            <input checked={checkedItem.includes(index)} onChange={(e) => handleCheckBox(e, index)} type="checkbox" />
-                            <img className="w-32 h-32" src={products.images} />
+                        <div key={index} className="w-full border-2 rounded-md my-2 border-gray-900 h-48 flex justify-between items-center p-2">
+                            <input checked={isAllChecked? isAllChecked : checkedItem.includes(index)} onChange={(e) => handleCheckBox(e, index)} type="checkbox" />
+                            <img className="w-28 sm:w-32 sm:h-32" src={products.images} />
                             <p className="font-bold text-xl text-blue-600">{products.title}</p>
                             <p className="font-bold text-xl text-orange-500">{products.amount}</p>
-                            <i onClick={deleteProduct} class="fa-solid fa-trash text-xl"></i>
+                            {!isAllChecked && <i onClick={deleteProduct} class="fa-solid fa-trash text-xl"></i>}
                         </div>
                     )
                 })}
             </div>
-                <div className="bg-white h-max border-2 flex flex-col w-1/3 justify-center items-center p-2">
+                {cartProducts.length && <div className="bg-white my-2 h-max border-2 rounded-md border-gray-900 flex flex-col md:w-1/3 justify-center items-center p-2">
                 <h1 className="font-bold text-xl h-10 border-b-2 w-full flex items-center justify-center">Order Summary</h1>
                 <span className="flex space-x-3 w-full p-2">
                     <p className="font-bold">Subtotal ({checkedItem.length} Items)</p>
@@ -115,9 +147,9 @@ function Cart() {
                     <p>{totalAmount + deliveryCharges}</p>
                 </span>
                 <span className="w-full">
-                    <button className="w-full text-white rounded-md p-2 bg-orange-600">Proceed to check Out ({checkedItem.length})</button>
+                    <button className="w-full text-white rounded-md p-2 bg-orange-600">Proceed to check Out ({isAllChecked? cartProducts.length : checkedItem.length})</button>
                 </span>
-            </div>
+            </div>}
             </div>
         </div>
     )

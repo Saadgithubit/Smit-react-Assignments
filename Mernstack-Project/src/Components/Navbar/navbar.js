@@ -44,7 +44,7 @@ function Navbar() {
 
     return (
         <div>
-        <nav className="bg-white border-2 px-3 py-6 flex justify-around navbar">
+        <nav className="bg-white border-2 py-6 flex justify-around">
             <div className="flex space-x-2 text-3xl py-2">
                 <i onClick={() => navigate('/')} class="cursor-pointer fa-regular fa-chart-bar m-1 text-blue-500"></i>
                 <h4 onClick={() => navigate('/')} className="font-bold cursor-pointer">Sapphire</h4>
@@ -86,8 +86,8 @@ function Navbar() {
         <nav className="hamb flex justify-between mr-3 my-2 border-t-2 border-b-2 w-full p-2">
             <div className='flex justify-center items-center mx-4 text-xl font-bold text-gray-600'>
                 <div className="flex space-x-2 text-3xl py-2">
-                <i class="fa-regular fa-chart-bar m-1 text-blue-500"></i>
-                <h4 className="font-bold">Sapphire</h4>
+                <i onClick={() => navigate('/')} class="fa-regular fa-chart-bar m-1 text-blue-500 cursor-pointer"></i>
+                <h4 onClick={() => navigate('/')} className="font-bold cursor-pointer">Sapphire</h4>
             </div>
             </div>
             {user && <span className="flex items-center space-x-2">
@@ -103,7 +103,7 @@ function Navbar() {
                     <li className="h-12 flex justify-center items-center hover:text-blue-600 hover:bg-gray-400 hover:cursor-pointer">
                 {user? <p className='border-b-2 p-2 font-bold text-xl w-full'>{user.fullname}</p>: <p> No User</p>}
                         </li>
-                    <li className="h-12 flex justify-center items-center hover:text-blue-600 hover:bg-gray-400 hover:cursor-pointer">Home</li>
+                    <li onClick={() => navigate('/')} className="h-12 flex justify-center items-center hover:text-blue-600 hover:bg-gray-400 hover:cursor-pointer">Home</li>
                     <li className="h-12 flex justify-center items-center hover:text-blue-600 hover:bg-gray-400 hover:cursor-pointer">Shop</li>
                     <li className="h-12 flex justify-center items-center hover:text-blue-600 hover:bg-gray-400 hover:cursor-pointer">Blogs</li>
                     <li className="h-12 flex justify-center items-center hover:text-blue-600 hover:bg-gray-400 hover:cursor-pointer">Pages</li>
